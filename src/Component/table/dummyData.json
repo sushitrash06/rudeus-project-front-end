@@ -1,0 +1,926 @@
+[
+  {
+    "id": 1,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "001A",
+    "IDStore": "001B",
+    "LokasiStore": "Jakarta",
+    "Kualitas": 95,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "002A",
+    "IDStore": "002B",
+    "LokasiStore": "Depok",
+    "Kualitas": 95,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "003A",
+    "IDStore": "003B",
+    "LokasiStore": "Depok",
+    "Kualitas": 45,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "004A",
+    "IDStore": "004B",
+    "LokasiStore": "Jakarta",
+    "Kualitas": 15,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "005A",
+    "IDStore": "005B",
+    "LokasiStore": "Bandung",
+    "Kualitas": 95,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "006A",
+    "IDStore": "006B",
+    "LokasiStore": "Bandung",
+    "Kualitas": 150,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "007A",
+    "IDStore": "007B",
+    "LokasiStore": "Aceh",
+    "Kualitas": 230,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "008A",
+    "IDStore": "008B",
+    "LokasiStore": "Depok",
+    "Kualitas": 36,
+    "KualirasKeluar": 30,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "TanggalTransaksi": "01 Januari 2021",
+    "IDTransaksi": "009A",
+    "IDStore": "009B",
+    "LokasiStore": "Depok",
+    "Kualitas": 65,
+    "KualirasKeluar": 90,
+    "Total": "Rp.36.260.000",
+    "TotalHPP": "Rp.36.260.000",
+    "diskon": "50%",
+    "ekspedisi": "JNE",
+    "ongkir": "Rp 10.000",
+    "kembalian": "-",
+    "tipe": "Central +",
+    "Kategori": "Helmet",
+    "Artikel": "SP 53 15 06",
+    "NamaBarang": "Bahrain Mclaren",
+    "ukuran": "8.5",
+    "keterangan": "Sesuai",
+    "detailPenjualan": [
+      {
+        "id": "1",
+        "itemPesanan": "Mandarin Fade/Coral Matte - RP Optics Multilaser Red",
+        "price": 3500000,
+        "kodeBarang": "CUTLINE | SP633846-0011",
+        "kuantitas": 5
+      },
+      {
+        "id": "2",
+        "itemPesanan": "Fire Red Matte - RP Optics Smoke Black",
+        "price": 1000000,
+        "kodeBarang": "CUTLINE | SP631054-0000",
+        "kuantitas": 10
+      },
+      {
+        "id": "3",
+        "itemPesanan": "White Gloss - ImpactX Photochromic 2 Laser Purple",
+        "price": 4500000,
+        "kodeBarang": "CUTLINE | SP637569-0008",
+        "kuantitas": 10
+      }
+    ]
+  }
+]
