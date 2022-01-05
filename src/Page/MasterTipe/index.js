@@ -173,7 +173,7 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-export default function Karyawan() {
+export default function MasterTipe() {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
@@ -260,7 +260,7 @@ export default function Karyawan() {
       marginTop:"5%"
     }}>
       <div style={{display:'flex'}}>
-      <h1>Pembelian</h1>
+      <h1>Master Tipe</h1>
             <div
              style={{
                  position:"absolute",

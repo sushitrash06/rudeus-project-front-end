@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
 import Button from "../../Component/button";
 import Input from "../../Component/button";
-import rows from "../../Component/table/dummyData.json";
+import rows from "../../ Component/table/dummyData.json";
 import { IconButton, InputAdornment, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -130,7 +130,7 @@ export default function BarangMasuk() {
           style={{
             position: "absolute",
             right: 0,
-            display: "flex",
+            display: "flex",   
           }}
         >
           <Button

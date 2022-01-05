@@ -9,6 +9,12 @@ import Pembelian from '../../Page/pembelian';
 import BarangMasuk from '../../Page/penyimpaan/BarangMasuk';
 import BarangKeluar from '../../Page/penyimpaan/BarangKeluar';
 import StockOpname from '../../Page/penyimpaan/StockOpname';
+import MasterKatgori from '../../Page/MasterKategori';
+import MasterTipe from '../../Page/MasterTipe';
+import MasterUkuran from '../../Page/MasterUkuran';
+import Pelanggan from '../../Page/pelanggan';
+import Karyawan from '../../Page/karyawan';
+import Pemasok from '../../Page/pemasok';
 
 // const PrivateRoute = ({ component: Component, ...rest }) => {
 // 	const accessToken = localStorage.getItem("DMDSHBTOKEN");
@@ -36,7 +42,12 @@ function Routes() {
         <Route exact path='/penyimpanan/barang-keluar' component={BarangKeluar}/>
         <Route exact path='/penyimpanan/stock-opname' component={StockOpname}/>
         <Route exact path='/pembelian' component={Pembelian}/>
-        <Route exact path='/penjualan-store/detail' component={FormPenjualanOffice}/>
+        <Route exact path='/master/kategori' component={MasterKatgori}/>
+        <Route exact path='/master/tipe' component={MasterTipe}/>
+        <Route exact path='/master/ukuran' component={MasterUkuran}/>
+        <Route exact path='/pelanggan' component={Pelanggan}/>
+        <Route exact path='/karyawan' component={Karyawan}/>
+        <Route exact path='/pemasok' component={Pemasok}/>
       </Switch>
   );
 }

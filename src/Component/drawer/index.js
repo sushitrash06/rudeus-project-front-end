@@ -370,15 +370,21 @@ export default function PersistentDrawerLeft() {
                   </List>
                 </AccordionDetails>
               </Accordion>
-              <ListItem>
+              <ListItem onClick={()=>{
+                      history.push('/pelanggan')
+                    }}>
                 <Icon icon="clarity:group-solid" style={{fontSize:"25px",marginRight:"5px"}}/>
                 <Typography>Pelanggan</Typography>
             </ListItem>
-            <ListItem>
+            <ListItem onClick={()=>{
+                      history.push('/karyawan')
+                    }}>
                 <Icon icon="clarity:group-solid" style={{fontSize:"25px",marginRight:"5px"}}/>
                 <Typography>Karyawan</Typography>
             </ListItem>
-              <ListItem>
+              <ListItem onClick={()=>{
+                      history.push('/pemasok')
+                    }}>
                 <Icon icon="fa-solid:people-arrows" style={{fontSize:"25px",marginRight:"5px"}}/>
                 <Typography>Pemasok</Typography>
             </ListItem>
@@ -401,13 +407,19 @@ export default function PersistentDrawerLeft() {
                 </AccordionSummary>
                 <AccordionDetails>
                 <List>
-                    <ListItem>
+                    <ListItem onClick={()=>{
+                      history.push('/master/kategori')
+                    }}>
                     <ListItemText primary="Master Kategori" />
                     </ListItem>
-                    <ListItem>
+                    <ListItem onClick={()=>{
+                      history.push('/master/tipe')
+                    }}>
                     <ListItemText primary="Master Tipe" />
                     </ListItem>
-                    <ListItem>
+                    <ListItem onClick={()=>{
+                      history.push('/master/Ukuran')
+                    }}>
                     <ListItemText primary="Master Ukuran" />
                     </ListItem>
                     <ListItem>
