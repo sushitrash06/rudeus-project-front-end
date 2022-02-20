@@ -91,14 +91,14 @@ const headCells = [
          disablePadding: true
         },
         {
-          id: 'kuantitas',
-          label: 'Kuantitas',
+          id: 'nama_pelanggan',
+          label: 'Nama Pelanggan',
          numeric: false,
          disablePadding: true
         },
         {
-          id: 'total',
-          label: 'Total',
+          id: 'no_hp_pelanggan',
+          label: 'No Hp Pelanggan',
          numeric: true,
          disablePadding: true
         },
@@ -347,8 +347,8 @@ export default function PenjualanOffice() {
                       <TableCell align="left">{row.id_transaksi}</TableCell>
                       <TableCell align="left">{row.id_office}</TableCell>
                       <TableCell align="left">{row.lokasi_office}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.total}</TableCell>
+                      <TableCell align="left">{row.nama_pelanggan}</TableCell>
+                      <TableCell align="left">{row.no_hp_pelanggan}</TableCell>
                       <TableCell align="left">
                       <IconButton onClick={()=>{
                         handleOpenDetail(row)

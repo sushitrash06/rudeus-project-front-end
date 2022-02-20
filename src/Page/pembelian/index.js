@@ -33,7 +33,7 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Gap from '../../Component/gap/index';
 import clsx from 'clsx';
-import { getPembelian } from '../../Config/Redux/action';
+import { deletePembelian, getPembelian } from '../../Config/Redux/action';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -67,60 +67,72 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
+  {
+    id: "id_supplier",
+    label: "Id Supplier",
+    disablePadding: true,
+    numeric: false,
+  },
+  {
+    id: "nama_supplier",
+    label: "Nama Supplier",
+    disablePadding: true,
+    numeric: false,
+  },
+  {
+    id: "pembelian_code",
+    label: "Pembelian Code",
+    disablePadding: true,
+    numeric: false,
+  },
     {
       id: "tanggal_transaksi",
       label: "Tanggal Transaksi",
       disablePadding: true,
       numeric: false,
     },
-    {
-      id: "artikel",
-      label: "Artikel",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "kategori",
-      label: "Kategori",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "tipe",
-      label: "Tipe",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "nama_barang",
-      label: "Nama Barang",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "kuantitas",
-      label: "Kuantitas",
-      numeric: true,
-      disablePadding: true,
-    },
-    {
-      id: "ukuran",
-      label: "Ukuran",
-      numeric: true,
-      disablePadding: true,
-    },
-    {
-      id: "hpp",
-      label: "HPP",
-      numeric: true,
-      disablePadding: true,
-    },
-    {
-      id: "total",
-      label: "Total",
-      numeric: true,
-      disablePadding: true,
-    },
+    // {
+    //   id: "kategori",
+    //   label: "Kategori",
+    //   disablePadding: true,
+    //   numeric: false,
+    // },
+    // {
+    //   id: "tipe",
+    //   label: "Tipe",
+    //   disablePadding: true,
+    //   numeric: false,
+    // },
+    // {
+    //   id: "nama_barang",
+    //   label: "Nama Barang",
+    //   disablePadding: true,
+    //   numeric: false,
+    // },
+    // {
+    //   id: "kuantitas",
+    //   label: "Kuantitas",
+    //   numeric: true,
+    //   disablePadding: true,
+    // },
+    // {
+    //   id: "ukuran",
+    //   label: "Ukuran",
+    //   numeric: true,
+    //   disablePadding: true,
+    // },
+    // {
+    //   id: "hpp",
+    //   label: "HPP",
+    //   numeric: true,
+    //   disablePadding: true,
+    // },
+    // {
+    //   id: "total",
+    //   label: "Total",
+    //   numeric: true,
+    //   disablePadding: true,
+    // },
     {
       id: "aksi",
       label: "Aksi",
@@ -190,6 +202,15 @@ export default function Pembelian() {
   useEffect(()=>{
     dispatch(getPembelian())
   },[])
+  const requestSearch = (searchedVal) => {
+    const filteredRows = dataStore.filter((data) => {
+      return Object.keys(data).some((key) =>
+      (typeof data[key] === 'string' || typeof data[key] ==='number') && 
+      data[key].toString().toLowerCase().includes(searchedVal.target.value)
+      );
+    });
+    setRows(filteredRows);    
+  };
   useEffect(()=>{
     setRows(dataStore)
   },[dataStore])
@@ -268,7 +289,7 @@ export default function Pembelian() {
                  display:"flex"
              }}
             >
-            <Button
+            {/* <Button
                 style={{
                     background: "#E14C4C",
                     color: 'white',
@@ -280,8 +301,8 @@ export default function Pembelian() {
                 }}
                 label="Hapus"
                 startIcon={<DeleteIcon/>}
-           />
-           <Button
+           /> */}
+           {/* <Button
                 style={{
                     background: "#828EED",
                     color: 'white',
@@ -293,7 +314,7 @@ export default function Pembelian() {
                 }}
                 label="Upload"
                 startIcon={<CloudUploadIcon/>}
-           />
+           /> */}
            </div>
       </div>
            <Gap height={15}/>
@@ -304,7 +325,7 @@ export default function Pembelian() {
           <InputLabel htmlFor="outlined-adornment-password">Cari</InputLabel>
           <OutlinedInput
             value={searched}
-            onChange={handleChangeSearch}
+            onChange={(searchVal)=> requestSearch(searchVal)}
             // onKeyUp={()=>{
             //   dispatch(getPenjualanOffice(`/search`))
             // }}
@@ -356,25 +377,33 @@ export default function Pembelian() {
                       key={row.id}
                       selected={isItemSelected}
                     >
+                      <TableCell align="left">{row.id_supplier}</TableCell>
+                      <TableCell align="left">{row.pembelian_code}</TableCell>
                       <TableCell align="left">{row.tanggal_transaksi}</TableCell>
-                      <TableCell align="left">{row.artikel}</TableCell>
-                      <TableCell align="left">{row.kategori}</TableCell>
-                      <TableCell align="left">{row.tipe}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.nama_barang}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.ukuran}</TableCell>
-                      <TableCell align="left">{row.hpp}</TableCell>
-                      <TableCell align="left">{row.total}</TableCell>
-                      <TableCell align="right">
+                      <TableCell align="left">{row.nama_supplier}</TableCell>
+                      <TableCell align="center">
                       <div style={{
-                        marginLeft:"-100px"
+                        display:"flex"
                       }}>
+                      <div>
                       <IconButton onClick={()=>{
                         handleOpenDetail(row)
                       }}>
                           <RemoveRedEyeOutlinedIcon />
                         </IconButton>
+                      </div>
+                      <div>
+                      <IconButton onClick={async()=>{
+                       const resp = await dispatch(deletePembelian(row.id_supplier))
+                       if (resp.type === 'DELETE_PEMBELIAN_SUCCESS'){
+                        window.location.reload()
+                       }else{
+                          alert("Error Delete")
+                       }
+                      }}>
+                          <DeleteIcon />
+                        </IconButton>
+                      </div>
                       </div>
                         </TableCell>
                     </TableRow>

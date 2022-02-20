@@ -168,7 +168,9 @@ export default function PersistentDrawerLeft() {
         <List>
             <ListItem>
             <div>
-            <ListItem Button>
+            <ListItem Button onClick={()=>{
+              history.push('/dashboard')
+            }}>
                 <Icon icon="bx:bxs-dashboard" style={{fontSize:"25px",marginRight:"5px"}}/>
                 <Typography>Dashboard</Typography>
             </ListItem>

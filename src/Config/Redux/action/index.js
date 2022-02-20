@@ -17,6 +17,9 @@ import {
     GET_BARANG_MASUK,
     GET_BARANG_MASUK_SUCCESS,
     GET_BARANG_MASUK_FAIL,
+    DELETE_PEMBELIAN,
+  DELETE_PEMBELIAN_SUCCESS,
+  DELETE_PEMBELIAN_FAIL,
     GET_STOCK_OPNAME,
     GET_STOCK_OPNAME_SUCCESS,
     GET_STOCK_OPNAME_FAIL,
@@ -25,7 +28,59 @@ import {
     GET_KARYAWAN_FAIL,
     GET_DETAIL_PESANAN,
     GET_DETAIL_PESANAN_FAIL,
-    GET_DETAIL_PESANAN_SUCCESS
+    GET_DETAIL_PESANAN_SUCCESS,
+    DASHBOARD_BIAYA,
+    DASHBOARD_BIAYA_SUCCESS,
+    DASHBOARD_BIAYA_FAIL,
+    DASHBOARD_BIAYA_PEMBELIAN,
+    DASHBOARD_BIAYA_PEMBELIAN_SUCCESS,
+    DASHBOARD_BIAYA_PEMBELIAN_FAIL,
+    DASHBOARD_BIAYA_JUMLAH_CUSTOMER,
+    DASHBOARD_BIAYA_JUMLAH_CUSTOMER_SUCCESS,
+    DASHBOARD_BIAYA_JUMLAH_CUSTOMER_FAIL,
+    DASHBOARD_BIAYA_JUMLAH_PRODUCT,
+    DASHBOARD_BIAYA_JUMLAH_PRODUCT_SUCCESS,
+    DASHBOARD_BIAYA_JUMLAH_PRODUCT_FAIL,
+    DASHBOARD_BIAYA_JUMLAH_SUPPLIER,
+    DASHBOARD_BIAYA_JUMLAH_SUPPLIER_SUCCESS,
+    DASHBOARD_BIAYA_JUMLAH_SUPPLIER_FAIL,
+    DASHBOARD_KEUNTUNGAN,
+    DASHBOARD_KEUNTUNGAN_SUCCESS,
+    DASHBOARD_KEUNTUNGAN_FAIL,
+    DASHBOARD_PEMBELIAN,
+    DASHBOARD_PEMBELIAN_SUCCESS,
+    DASHBOARD_PEMBELIAN_FAIL,
+    DASHBOARD_PENDAPATAN,
+    DASHBOARD_PENDAPATAN_SUCCESS,
+    DASHBOARD_PENDAPATAN_FAIL,
+    DASHBOARD_PENJUALAN,
+    DASHBOARD_PENJUALAN_SUCCESS,
+    DASHBOARD_PENJUALAN_FAIL,
+    DASHBOARD_STOCK_OFFICE,
+    DASHBOARD_STOCK_OFFICE_SUCCESS,
+    DASHBOARD_STOCK_OFFICE_FAIL,
+    DASHBOARD_STOCK_STORE,
+    DASHBOARD_STOCK_STORE_SUCCESS,
+    DASHBOARD_STOCK_STORE_FAIL,
+    GET_MASTER_AKSESORIS,
+    GET_MASTER_AKSESORIS_SUCCESS,
+    GET_MASTER_AKSESORIS_FAIL,
+    GET_MASTER_KATEGORI,
+    GET_MASTER_KATEGORI_SUCCESS,
+    GET_MASTER_KATEGORI_FAIL,
+    GET_MASTER_PRODUCT,
+    GET_MASTER_PRODUCT_SUCCESS,
+    GET_MASTER_PRODUCT_FAIL,
+    GET_MASTER_PROJECT,
+    GET_MASTER_PROJECT_SUCCESS,
+    GET_MASTER_PROJECT_FAIL,
+    GET_MASTER_TIPE,
+    GET_MASTER_TIPE_SUCCESS,
+    GET_MASTER_TIPE_FAIL,
+    GET_MASTER_UKURAN,
+    GET_MASTER_UKURAN_SUCCESS,
+    GET_MASTER_UKURAN_FAIL,
+
 } from '../ActionType'
 import {api} from '../../Api/index';
 
@@ -158,6 +213,34 @@ export const getPembelianSuccess = ({
 export const getPembelianFail = (data) => dispatch => {
     return dispatch({
         type: GET_PEMBELIAN_FAIL,
+        payload: data
+    })
+}
+
+export const deletePembelian = (params) => dispatch => {
+    dispatch({
+        type: DELETE_PEMBELIAN
+    });
+
+    const request = api.deletePembelian(params);
+    return request.then(
+        response =>dispatch(deletePembelianSuccess(response)),
+        err => dispatch(deletePembelianFail(err))
+    );
+};
+
+export const deletePembelianSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DELETE_PEMBELIAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const deletePembelianFail = (data) => dispatch => {
+    return dispatch({
+        type: DELETE_PEMBELIAN_FAIL,
         payload: data
     })
 }
@@ -301,4 +384,482 @@ export const getDetailPesananFail = (data) => dispatch => {
         payload: data
     })
 }
+
+export const getDashboardBiaya = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_BIAYA
+    });
+
+    const request = api.getDashboardBiaya(params);
+    return request.then(
+        response =>dispatch(getDashboardBiayaSuccess(response)),
+        err => dispatch(getDashboardBiayaFail(err))
+    );
+};
+
+export const getDashboardBiayaSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardBiayaFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardBiayaPembelian = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_BIAYA_PEMBELIAN
+    });
+
+    const request = api.getDashboardBiayaPembelian(params);
+    return request.then(
+        response =>dispatch(getDashboardBiayaPembelianSuccess(response)),
+        err => dispatch(getDashboardBiayaPembelianFail(err))
+    );
+};
+
+export const getDashboardBiayaPembelianSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_PEMBELIAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardBiayaPembelianFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_PEMBELIAN_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardJumlahCustomer = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_CUSTOMER
+    });
+
+    const request = api.getDashboardJumlahCustomer(params);
+    return request.then(
+        response =>dispatch(getDashboardJumlahCustomerSuccess(response)),
+        err => dispatch(getDashboardJumlahCustomerFail(err))
+    );
+};
+
+export const getDashboardJumlahCustomerSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_CUSTOMER_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardJumlahCustomerFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_CUSTOMER_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardJumlahProduct = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_PRODUCT
+    });
+
+    const request = api.getDashboardJumlahProduct(params);
+    return request.then(
+        response =>dispatch(getDashboardJumlahProductSuccess(response)),
+        err => dispatch(getDashboardJumlahProductFail(err))
+    );
+};
+
+export const getDashboardJumlahProductSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_PRODUCT_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardJumlahProductFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_PRODUCT_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardJumlahSupplier = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_SUPPLIER
+    });
+
+    const request = api.getDashboardJumlahSupplier(params);
+    return request.then(
+        response =>dispatch(getDashboardJumlahSupplierSuccess(response)),
+        err => dispatch(getDashboardJumlahSupplierFail(err))
+    );
+};
+
+export const getDashboardJumlahSupplierSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_SUPPLIER_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardJumlahSupplierFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_BIAYA_JUMLAH_SUPPLIER_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardKeuntungan = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_KEUNTUNGAN
+    });
+
+    const request = api.getDashboardKeuntungan(params);
+    return request.then(
+        response =>dispatch(getDashboardKeuntunganSuccess(response)),
+        err => dispatch(getDashboardKeuntunganFail(err))
+    );
+};
+
+export const getDashboardKeuntunganSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_KEUNTUNGAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardKeuntunganFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_KEUNTUNGAN_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardPembelian = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_PEMBELIAN
+    });
+
+    const request = api.getDashboardPembelian(params);
+    return request.then(
+        response =>dispatch(getDashboardPembelianSuccess(response)),
+        err => dispatch(getDashboardPembelianFail(err))
+    );
+};
+
+export const getDashboardPembelianSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_PEMBELIAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardPembelianFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_PEMBELIAN_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardPendapatan = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_PENDAPATAN
+    });
+
+    const request = api.getDashboardPendapatan(params);
+    return request.then(
+        response =>dispatch(getDashboardPendapatanSuccess(response)),
+        err => dispatch(getDashboardPendapatanFail(err))
+    );
+};
+
+export const getDashboardPendapatanSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_PENDAPATAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardPendapatanFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_PENDAPATAN_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardPenjualan = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_PENJUALAN
+    });
+
+    const request = api.getDashboardPenjualan(params);
+    return request.then(
+        response =>dispatch(getDashboardPenjualanSuccess(response)),
+        err => dispatch(getDashboardPenjualanFail(err))
+    );
+};
+
+export const getDashboardPenjualanSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_PENJUALAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardPenjualanFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_PENJUALAN_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardStockOffice = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_STOCK_OFFICE
+    });
+
+    const request = api.getDashboardStockOffice(params);
+    return request.then(
+        response =>dispatch(getDashboardStockOfficeSuccess(response)),
+        err => dispatch(getDashboardStockOfficeFail(err))
+    );
+};
+
+export const getDashboardStockOfficeSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_STOCK_OFFICE_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardStockOfficeFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_STOCK_OFFICE_FAIL,
+        payload: data
+    })
+}
+
+export const getDashboardStockStore = (params) => dispatch => {
+    dispatch({
+        type: DASHBOARD_STOCK_STORE
+    });
+
+    const request = api.getDashboardStockStore(params);
+    return request.then(
+        response =>dispatch(getDashboardStockStoreSuccess(response)),
+        err => dispatch(getDashboardStockStoreFail(err))
+    );
+};
+
+export const getDashboardStockStoreSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_STOCK_STORE_SUCCESS,
+        payload: data
+    })
+}
+
+export const getDashboardStockStoreFail = (data) => dispatch => {
+    return dispatch({
+        type: DASHBOARD_STOCK_STORE_FAIL,
+        payload: data
+    })
+}
+
+export const getMasterAksesoris = (params) => dispatch => {
+    dispatch({
+        type: GET_MASTER_AKSESORIS
+    });
+
+    const request = api.getMasterAksesoris(params);
+    return request.then(
+        response =>dispatch(getMasterAksesorisSuccess(response)),
+        err => dispatch(getMasterAksesorisFail(err))
+    );
+};
+
+export const getMasterAksesorisSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_AKSESORIS_SUCCESS,
+        payload: data
+    })
+}
+
+export const getMasterAksesorisFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_AKSESORIS_FAIL,
+        payload: data
+    })
+}
+
+export const getMasterKategori = (params) => dispatch => {
+    dispatch({
+        type: GET_MASTER_KATEGORI
+    });
+
+    const request = api.getMasterKategori(params);
+    return request.then(
+        response =>dispatch(getMasterKategoriSuccess(response)),
+        err => dispatch(getMasterKategoriFail(err))
+    );
+};
+
+export const getMasterKategoriSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_KATEGORI_SUCCESS,
+        payload: data
+    })
+}
+
+export const getMasterKategoriFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_KATEGORI_FAIL,
+        payload: data
+    })
+}
+
+export const getMasterProduk = (params) => dispatch => {
+    dispatch({
+        type: GET_MASTER_PRODUCT
+    });
+
+    const request = api.getMasterProduk(params);
+    return request.then(
+        response =>dispatch(getMasterProdukSuccess(response)),
+        err => dispatch(getMasterProdukFail(err))
+    );
+};
+
+export const getMasterProdukSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_PRODUCT_SUCCESS,
+        payload: data
+    })
+}
+
+export const getMasterProdukFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_PRODUCT_FAIL,
+        payload: data
+    })
+}
+
+export const getMasterProject = (params) => dispatch => {
+    dispatch({
+        type: GET_MASTER_PROJECT
+    });
+
+    const request = api.getMasterProject(params);
+    return request.then(
+        response =>dispatch(getMasterProjectSuccess(response)),
+        err => dispatch(getMasterProjectFail(err))
+    );
+};
+
+export const getMasterProjectSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_PROJECT_SUCCESS,
+        payload: data
+    })
+}
+
+export const getMasterProjectFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_PROJECT_FAIL,
+        payload: data
+    })
+}
+
+export const getMasterTipe = (params) => dispatch => {
+    dispatch({
+        type: GET_MASTER_TIPE
+    });
+
+    const request = api.getMasterTipe(params);
+    return request.then(
+        response =>dispatch(getMasterTipeSuccess(response)),
+        err => dispatch(getMasterTipeFail(err))
+    );
+};
+
+export const getMasterTipeSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_TIPE_SUCCESS,
+        payload: data
+    })
+}
+
+export const getMasterTipeFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_TIPE_FAIL,
+        payload: data
+    })
+}
+
+export const getMasterukuran = (params) => dispatch => {
+    dispatch({
+        type: GET_MASTER_UKURAN
+    });
+
+    const request = api.getMasterukuran(params);
+    return request.then(
+        response =>dispatch(getMasterukuranSuccess(response)),
+        err => dispatch(getMasterukuranFail(err))
+    );
+};
+
+export const getMasterukuranSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_UKURAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getMasterukuranFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_MASTER_UKURAN_FAIL,
+        payload: data
+    })
+}
+
+
 

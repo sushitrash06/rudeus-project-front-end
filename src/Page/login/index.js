@@ -34,12 +34,14 @@ function Login(props) {
             }}
             onSubmit = {async(values,{setSubmitting})=>{
                 const user ={
+                    // namaPengguna: "Azka Andya",
                     userName:values.userName,
                     password:values.password
                 }
                 const resp = await dispatch(login(user))
                 if (resp.type === 'LOGIN_SUCCESS'){
                     history.push('/dashboard')
+                    window.location.reload()
                 }else{
                     alert('gagal')
                     console.log('ini login')

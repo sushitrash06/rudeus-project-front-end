@@ -190,6 +190,16 @@ export default function Pemasok() {
   useEffect(()=>{
     dispatch(getPembelian())
   },[])
+  const requestSearch = (searchedVal) => {
+    const filteredRows = dataStore.filter((data) => {
+      return Object.keys(data).some((key) =>
+      (typeof data[key] === 'string' || typeof data[key] ==='number') && 
+      data[key].toString().toLowerCase().includes(searchedVal.target.value)
+      );
+    });
+    setRows(filteredRows);    
+  };
+
   useEffect(()=>{
     setRows(dataStore)
   },[dataStore])
@@ -213,6 +223,7 @@ export default function Pemasok() {
     }
     setSelected([]);
   };
+ 
 
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
@@ -304,7 +315,7 @@ export default function Pemasok() {
           <InputLabel htmlFor="outlined-adornment-password">Cari</InputLabel>
           <OutlinedInput
             value={searched}
-            onChange={handleChangeSearch}
+            onChange={(searchVal)=> requestSearch(searchVal)}
             // onKeyUp={()=>{
             //   dispatch(getPenjualanOffice(`/search`))
             // }}

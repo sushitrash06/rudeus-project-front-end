@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 // import { Redirect } from 'react-router';
 import { Login,Dashboard,DetailPenjualanStore } from '../../Page';
 import PenjualanStore from '../../Component/table/PenjualanStore/index'
@@ -16,18 +16,18 @@ import Pelanggan from '../../Page/pelanggan';
 import Karyawan from '../../Page/karyawan';
 import Pemasok from '../../Page/pemasok';
 
-// const PrivateRoute = ({ component: Component, ...rest }) => {
-// 	const accessToken = localStorage.getItem("DMDSHBTOKEN");
+const PrivateRoute = ({ component: Component, ...rest }) => {
+	const accessToken = localStorage.getItem("rd-prjt");
 
-// 	return (
-// 		<Route
-// 			{...rest}
-// 			render={(props) =>
-// 				accessToken ? <Component {...props} /> : <Redirect to='/' />
-// 			}
-// 		/>
-// 	);
-// };
+	return (
+		<Route
+			{...rest}
+			render={(props) =>
+				accessToken ? <Component {...props} /> : <Redirect to='/' />
+			}
+		/>
+	);
+};
 
 
 function Routes() {
@@ -35,19 +35,19 @@ function Routes() {
     // <Router>
       <Switch>
         <Route exact path='/' component={Login} />
-        <Route exact path='/dashboard' component={Dashboard} />
-        <Route exact path='/penjualan-store' component={PenjualanStore}/>
-        <Route exact path='/penjualan-office' component={PenjualanOffice}/>
-        <Route exact path='/penyimpanan/barang-masuk' component={BarangMasuk}/>
-        <Route exact path='/penyimpanan/barang-keluar' component={BarangKeluar}/>
-        <Route exact path='/penyimpanan/stock-opname' component={StockOpname}/>
-        <Route exact path='/pembelian' component={Pembelian}/>
-        <Route exact path='/master/kategori' component={MasterKatgori}/>
-        <Route exact path='/master/tipe' component={MasterTipe}/>
-        <Route exact path='/master/ukuran' component={MasterUkuran}/>
-        <Route exact path='/pelanggan' component={Pelanggan}/>
-        <Route exact path='/karyawan' component={Karyawan}/>
-        <Route exact path='/pemasok' component={Pemasok}/>
+        <PrivateRoute exact path='/dashboard' component={Dashboard} />
+        <PrivateRoute exact path='/penjualan-store' component={PenjualanStore}/>
+        <PrivateRoute exact path='/penjualan-office' component={PenjualanOffice}/>
+        <PrivateRoute exact path='/penyimpanan/barang-masuk' component={BarangMasuk}/>
+        <PrivateRoute exact path='/penyimpanan/barang-keluar' component={BarangKeluar}/>
+        <PrivateRoute exact path='/penyimpanan/stock-opname' component={StockOpname}/>
+        <PrivateRoute exact path='/pembelian' component={Pembelian}/>
+        <PrivateRoute exact path='/master/kategori' component={MasterKatgori}/>
+        <PrivateRoute exact path='/master/tipe' component={MasterTipe}/>
+        <PrivateRoute exact path='/master/ukuran' component={MasterUkuran}/>
+        <PrivateRoute exact path='/pelanggan' component={Pelanggan}/>
+        <PrivateRoute exact path='/karyawan' component={Karyawan}/>
+        <PrivateRoute exact path='/pemasok' component={Pemasok}/>
       </Switch>
   );
 }
