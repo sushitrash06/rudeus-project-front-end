@@ -251,19 +251,6 @@ export default function PenjualanStore() {
                  display:"flex"
              }}
             >
-            <Button
-                style={{
-                    background: "#E14C4C",
-                    color: 'white',
-                    textTransform: 'capitalize',
-                    marginRight:"15px",
-                    width:"100%",
-                    padding:"1em",
-                    borderRadius:"14px"
-                }}
-                label="Hapus"
-                startIcon={<DeleteIcon/>}
-           />
            <Button
                 style={{
                     background: "#828EED",
@@ -349,13 +336,17 @@ export default function PenjualanStore() {
                       <TableCell align="left">{row.lokasi_store}</TableCell>
                       <TableCell align="left">{row.ekspedisi}</TableCell>
                       <TableCell align="left">{row.total}</TableCell>
-                      <TableCell align="left" style={{display:'flex'}}>
+                      <TableCell align="center" style={{display:'flex'}}>
+                      <IconButton onClick={()=>{
+                        handleOpenDetail(row)
+                      }}>
+                          <DeleteIcon />
+                        </IconButton>
                       <IconButton onClick={()=>{
                         handleOpenDetail(row)
                       }}>
                           <RemoveRedEyeOutlinedIcon />
                         </IconButton>
-                        <p>Aksi</p>
                         </TableCell>
                     </TableRow>
                   );

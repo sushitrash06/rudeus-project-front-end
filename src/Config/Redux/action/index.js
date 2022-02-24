@@ -17,6 +17,9 @@ import {
     GET_BARANG_MASUK,
     GET_BARANG_MASUK_SUCCESS,
     GET_BARANG_MASUK_FAIL,
+    POST_STOCK_OPNAME,
+    POST_STOCK_OPNAME_SUCCESSS,
+    POST_STOCK_OPNAME_FAIL,
     DELETE_PEMBELIAN,
   DELETE_PEMBELIAN_SUCCESS,
   DELETE_PEMBELIAN_FAIL,
@@ -297,6 +300,34 @@ export const getPenyimpananMasukSuccess = ({
 export const getPenyimpananMasukFail = (data) => dispatch => {
     return dispatch({
         type: GET_BARANG_MASUK_FAIL,
+        payload: data
+    })
+}
+
+export const addStockOpname = (params,data) => dispatch => {
+    dispatch({
+        type: POST_STOCK_OPNAME
+    });
+
+    const request = api.addStockOpname(params,data);
+    return request.then(
+        response =>dispatch(addStockOpnameSuccess(response)),
+        err => dispatch(addStockOpnameFail(err))
+    );
+};
+
+export const addStockOpnameSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: POST_STOCK_OPNAME_SUCCESSS,
+        payload: data
+    })
+}
+
+export const addStockOpnameFail = (data) => dispatch => {
+    return dispatch({
+        type: POST_STOCK_OPNAME_FAIL,
         payload: data
     })
 }

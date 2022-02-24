@@ -251,19 +251,6 @@ export default function PenjualanOffice() {
                  display:"flex"
              }}
             >
-            <Button
-                style={{
-                    background: "#E14C4C",
-                    color: 'white',
-                    textTransform: 'capitalize',
-                    marginRight:"15px",
-                    width:"100%",
-                    padding:"1em",
-                    borderRadius:"14px"
-                }}
-                label="Hapus"
-                startIcon={<DeleteIcon/>}
-           />
            <Button
                 style={{
                     background: "#828EED",
@@ -349,7 +336,12 @@ export default function PenjualanOffice() {
                       <TableCell align="left">{row.lokasi_office}</TableCell>
                       <TableCell align="left">{row.nama_pelanggan}</TableCell>
                       <TableCell align="left">{row.no_hp_pelanggan}</TableCell>
-                      <TableCell align="left">
+                      <TableCell align="center" style={{display:"flex"}}>
+                      <IconButton onClick={()=>{
+                        handleOpenDetail(row)
+                      }}>
+                          <DeleteIcon />
+                        </IconButton>
                       <IconButton onClick={()=>{
                         handleOpenDetail(row)
                       }}>

@@ -1,4 +1,4 @@
-import { Grid, Paper, TextField, Typography } from "@mui/material";
+import { Grid, Paper, Typography } from "@mui/material";
 import React, { useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/system";
@@ -157,13 +157,14 @@ function Dashboard(props) {
     dispatch(getDashboardJumlahCustomer());
     dispatch(getDashboardJumlahProduct());
     dispatch(getDashboardJumlahSupplier());
-    // dispatch(getDashboardKeuntungan());
+    dispatch(getDashboardKeuntungan());
     dispatch(getDashboardPembelian());
     dispatch(getDashboardPenjualan());
-    // dispatch(getDashboardStockOffice());
-    // dispatch(getDashboardStockStore());
-    // dispatch(getDashboardPendapatan());
+    dispatch(getDashboardStockOffice());
+    dispatch(getDashboardStockStore());
+    dispatch(getDashboardPendapatan());
   }, []);
+  
   return (
     <div style={{ marginTop: "100px" }}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -236,7 +237,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Total Penjualan</Typography>
-                        <Typography fontSize={20}>{Penjualan.total}</Typography>
+                        <Typography fontSize={20}>{Penjualan}</Typography>
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
@@ -250,7 +251,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Biaya</Typography>
-                        <Typography fontSize={20}>{Biaya.total}</Typography>
+                        <Typography fontSize={20}>{Biaya}</Typography>
                       </div>
                     </div>
                   </div>
@@ -266,7 +267,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Pendapatan</Typography>
-                        <Typography fontSize={20}>{Pendapatan.total}</Typography>
+                        <Typography fontSize={20}>Rp {Pendapatan}</Typography>
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
@@ -280,7 +281,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Keuntungan</Typography>
-                        <Typography fontSize={20}>{Keuntungan.total}</Typography>
+                        <Typography fontSize={20}>Rp {Keuntungan}</Typography>
                       </div>
                     </div>
                   </div>
@@ -308,7 +309,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Total Pembelian</Typography>
-                        <Typography fontSize={20}>{Pembelian.total}</Typography>
+                        <Typography fontSize={20}>{Pembelian}</Typography>
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
@@ -322,7 +323,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Biaya</Typography>
-                        <Typography fontSize={20}>{BiayaPembelian.total}</Typography>
+                        <Typography fontSize={20}>Rp {BiayaPembelian}</Typography>
                       </div>
                     </div>
                   </div>
@@ -377,7 +378,7 @@ function Dashboard(props) {
                       }}
                     />{" "}
                     <div align="left">
-                      <Typography fontSize={20}>{JumlahProduct.total}</Typography>
+                      <Typography fontSize={20}>{JumlahProduct}</Typography>
                     </div>
                   </div>
                   <div
@@ -392,7 +393,7 @@ function Dashboard(props) {
                       }}
                     />{" "}
                     <div align="left">
-                      <Typography fontSize={20}>{Pendapatan.total}</Typography>
+                      <Typography fontSize={20}>Rp {Pendapatan}</Typography>
                     </div>
                   </div>
                   <div
@@ -407,7 +408,7 @@ function Dashboard(props) {
                       }}
                     />{" "}
                     <div align="left">
-                      <Typography fontSize={20}>{Pembelian.total}</Typography>
+                      <Typography fontSize={20}>{Pembelian}</Typography>
                     </div>
                   </div>
                 </div>
@@ -434,7 +435,7 @@ function Dashboard(props) {
                     />
                     <div align="left">
                       <Typography fontSize={15}>Costumers</Typography>
-                      <Typography fontSize={50}>{JumlahCustomer.total}</Typography>
+                      <Typography fontSize={50}>{JumlahCustomer}</Typography>
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
@@ -449,7 +450,7 @@ function Dashboard(props) {
                     />
                     <Typography fontSize={15}>Supplier</Typography>{" "}
                     <div align="left">
-                      <Typography fontSize={50}>{JumlahSupplier.total}</Typography>
+                      <Typography fontSize={50}>{JumlahSupplier}</Typography>
                     </div>
                   </div>
                 </div>

@@ -57,7 +57,7 @@ function DetailPenjualanStore(props) {
   useEffect(()=>{
       dispatch(getDetailPesanan(`id_transaksi=${id}`))
   },[])
-  // console.log(detailTable);
+  // console.log(detail,'detail');
   const [dataTable, setDataTable] = useState(dataDetail.detailPenjualan);
 
   const history = useHistory();
@@ -226,7 +226,7 @@ function DetailPenjualanStore(props) {
                         </TableRow>
                       </TableHead>
                       <TableBody>
-                        {detailTable.map((row) => {
+                        {detail?.detailPesananList && detail?.detailPesananList.map((row) => {
                           return (
                             <StyledTableRow key={row.id}>
                               <StyledTableCell component="th" scope="row">

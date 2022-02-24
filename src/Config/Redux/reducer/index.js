@@ -14,6 +14,9 @@ import {
   DELETE_PEMBELIAN,
   DELETE_PEMBELIAN_SUCCESS,
   DELETE_PEMBELIAN_FAIL,
+  POST_STOCK_OPNAME,
+  POST_STOCK_OPNAME_SUCCESSS,
+  POST_STOCK_OPNAME_FAIL,
   GET_BARANG_KELUAR,
   GET_BARANG_KELUAR_SUCCESS,
   GET_BARANG_KELUAR_FAIL,
@@ -214,6 +217,11 @@ import {
           error: false,
           data: {},
         },
+        addStockOpname:{
+          loading: false,
+          error: false,
+          data: {},
+        }
     }
 
     const reducer = (state = initialState, action) => {
@@ -358,6 +366,26 @@ import {
                   ...state,
                   getPenyimpananMasuk: { ...state.getPenyimpananMasuk, loading: false, error: action.payload },
                 };
+                case POST_STOCK_OPNAME:
+                  return {
+                    ...state,
+                    addStockOpname: { ...state.addStockOpname, loading: true, error: false },
+                  };
+                case POST_STOCK_OPNAME_SUCCESSS:
+                  return {
+                    ...state,
+                    addStockOpname: {
+                      ...state.addStockOpname,
+                      loading: false,
+                      error: false,
+                      data: action.payload,
+                    },
+                  };
+                case POST_STOCK_OPNAME_FAIL:
+                  return {
+                    ...state,
+                    addStockOpname: { ...state.addStockOpname, loading: false, error: action.payload },
+                  };
                 case GET_STOCK_OPNAME:
                 return {
                   ...state,

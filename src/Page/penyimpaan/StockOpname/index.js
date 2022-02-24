@@ -34,6 +34,7 @@ import { useEffect } from 'react';
 import { getStockOpname } from '../../../Config/Redux/action';
 import Gap from '../../../Component/gap/index';
 import clsx from 'clsx';
+import Add from '@mui/icons-material/Add';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -87,7 +88,7 @@ const headCells = [
     disablePadding: true,
   },
   {
-    id: "NamaBarang",
+    id: "nama_barang",
     label: "Nama Barang",
     disablePadding: true,
   },
@@ -187,6 +188,7 @@ export default function PenjualanStore() {
   const [openDetail,setOpenDetail] = React.useState(false)
   const [rows, setRows] = React.useState(dataStore)
   const [searched, setSearched] = React.useState();
+  const [openDetailAdd,setOpenDetailAdd] = React.useState(false)
   const [cari, setCari] = React.useState();
   useEffect(()=>{
     dispatch(getStockOpname())
@@ -271,7 +273,7 @@ export default function PenjualanStore() {
             >
             <Button
                 style={{
-                    background: "#E14C4C",
+                    background: "rgb(81, 94, 193)",
                     color: 'white',
                     textTransform: 'capitalize',
                     marginRight:"15px",
@@ -279,8 +281,11 @@ export default function PenjualanStore() {
                     padding:"1em",
                     borderRadius:"14px"
                 }}
-                label="Hapus"
-                startIcon={<DeleteIcon/>}
+                label="Tambah"
+                startIcon={<Add/>}
+                onClick={()=>{
+                  setOpenDetailAdd(true)
+                }}
            />
            <Button
                 style={{
@@ -306,9 +311,6 @@ export default function PenjualanStore() {
           <OutlinedInput
             value={searched}
             onChange={handleChangeSearch}
-            // onKeyUp={()=>{
-            //   dispatch(getPenjualanStore(`/search`))
-            // }}
             id="outlined-adornment-password"
             endAdornment={
               <InputAdornment position="end">
@@ -372,8 +374,8 @@ export default function PenjualanStore() {
                       >
                         {row.kategori}
                       </TableCell>
+                      <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="left">{row.nama_barang}</TableCell>
-                      <TableCell align="left">{row.tipe}</TableCell>
                       <TableCell align="left">{row.kuantitas_masuk}</TableCell>
                       <TableCell align="left">{row.kuantitas_keluar}</TableCell>
                       <TableCell align="left">{row.stock}</TableCell>
@@ -417,6 +419,12 @@ export default function PenjualanStore() {
     data={toBeSelected}
     onClose={()=>{
       setOpenDetail(false)
+    }}
+    />
+    <DetailPenjualanStore
+    open={openDetailAdd}
+    onClose={()=>{
+      setOpenDetailAdd(false)
     }}
     />
     </div>

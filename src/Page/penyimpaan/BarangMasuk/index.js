@@ -23,7 +23,7 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import Button from '../../../Component/button/index'
-import Input from '../../../Component/input/index'
+import AddIcon from '@mui/icons-material/Add';
 import {FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SearchIcon from '@mui/icons-material/Search'
@@ -183,6 +183,10 @@ export default function PenjualanStore() {
   const [rows, setRows] = React.useState(dataStore)
   const [searched, setSearched] = React.useState();
   const [cari, setCari] = React.useState();
+  const [openTambah, setOpenTambah] = React.useState(false)
+  const handleOpenTambah = () =>{
+    setOpenTambah(true)
+  }
   useEffect(()=>{
     dispatch(getPenyimpananMasuk())
   },[])
@@ -264,9 +268,9 @@ export default function PenjualanStore() {
                  display:"flex"
              }}
             >
-            <Button
+            {/* <Button
                 style={{
-                    background: "#E14C4C",
+                    background: "#5c6ded",
                     color: 'white',
                     textTransform: 'capitalize',
                     marginRight:"15px",
@@ -274,9 +278,12 @@ export default function PenjualanStore() {
                     padding:"1em",
                     borderRadius:"14px"
                 }}
-                label="Hapus"
-                startIcon={<DeleteIcon/>}
-           />
+                label="Tambah"
+                startIcon={<AddIcon/>}
+                onClick={()=>{
+                  handleOpenTambah(true)
+                }}
+           /> */}
            <Button
                 style={{
                     background: "#828EED",
@@ -359,7 +366,7 @@ export default function PenjualanStore() {
                       </TableCell>
                       <TableCell align="left">{row.artikel}</TableCell>
                       <TableCell align="left">{row.kategori}</TableCell>
-                      <TableCell align="left">{row.tipe}</TableCell>
+                      <TableCell align="left">{row.type}</TableCell>
                       <TableCell align="left">{row.nama_barang}</TableCell>
                       <TableCell align="left">{row.kuantitas}</TableCell>
                       <TableCell align="left">{row.ukuran}</TableCell>
@@ -399,12 +406,18 @@ export default function PenjualanStore() {
       </Paper>
     </Box>
     <DetailPenjualanStore
-    open={openDetail}
-    data={toBeSelected}
-    onClose={()=>{
-      setOpenDetail(false)
-    }}
+      open={openDetail}
+      data={toBeSelected}
+      onClose={()=>{
+        setOpenDetail(false)
+      }}
     />
+    {/* <DetailPenjualanStore
+      open={openTambah}
+      onClose={()=>{
+        setOpenTambah(false)
+      }}
+    /> */}
     </div>
       );
 }

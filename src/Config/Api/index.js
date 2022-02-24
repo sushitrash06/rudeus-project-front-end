@@ -72,10 +72,9 @@ export const api = {
 	addPenyimpananKeluar,
 	searchPenyimpananKeluar,
 	updatePenyimpananKeluar,
-	addPenyimpananMasuk,
+	addStockOpname,
 	searchPenyimpananMasuk,
 	updatePenyimpananMasuk,
-	addStockOpname,
 	searchStockOpname,
 	updateStockOpname,
 	searchMasterKategori,
@@ -124,7 +123,10 @@ const defaultHeaders = {
 	'Content-Type': 'application/json',
 	'Authorization':'Bearer '+ token
 };
-
+const defaultHeadersPost = {
+	'Content-Type': 'multipart/form-data',
+	'Authorization':'Bearer '+ token
+};
 // console.log('lalalalala')
 async function login(data) {
 	// console.log('login')
@@ -166,17 +168,18 @@ async function getPenjualanStore(params) {
 		return Promise.reject(error.response);
 	}
 }
-async function addPenjualanStore(params) {
+async function addPenjualanStore(params,data) {
 	// console.log('login')
 	try {
 		const url = `${BASE_URL}store/add?${params}`;
 		const headers = {
-			...defaultHeaders
+			...defaultHeadersPost
 		};
 		const response = await axios({
 			method: 'POST',
 			url,
 			headers,
+			data
 		});
 		return response;
 	} catch (error) {
@@ -511,26 +514,6 @@ async function getPenyimpananMasuk(params) {
 	}
 }
 
-async function addPenyimpananMasuk(params) {
-	// console.log('login')
-	try {
-		const url = `${BASE_URL}penyimpananMasuk/add?${params}`;
-		const headers = {
-			...defaultHeaders
-		};
-		const response = await axios({
-			method: 'POST',
-			url,
-			headers,
-		});
-		return response;
-	} catch (error) {
-		if (error.response.status === 401) {
-			//clearStoredCreds();
-		}
-		return Promise.reject(error.response);
-	}
-}
 async function deletePenyimpananMasuk(params) {
 	// console.log('login')
 	try {
@@ -613,16 +596,17 @@ async function getStockOpname(params) {
 	}
 }
 
-async function addStockOpname(params) {
+async function addStockOpname(params,data) {
 	// console.log('login')
 	try {
-		const url = `${BASE_URL}stockOpname/add?${params}`;
+		const url = `${BASE_URL}stockOpname/${params}`;
 		const headers = {
-			...defaultHeaders
+			...defaultHeadersPost
 		};
 		const response = await axios({
 			method: 'POST',
 			url,
+			data,
 			headers,
 		});
 		return response;

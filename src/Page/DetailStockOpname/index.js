@@ -21,6 +21,10 @@ import {
   import TableContainer from "@mui/material/TableContainer";
   import TableHead from "@mui/material/TableHead";
   import TableRow from "@mui/material/TableRow";
+import { addStockOpname, getStockOpname } from "../../Config/Redux/action";
+import { useDispatch } from "react-redux";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ErrorIcon from '@mui/icons-material/Error';
   
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -43,45 +47,90 @@ import {
   }));
   const useForceUpdate = () => useState()[1];
   function FormPembelian(props) {
-    const detailProps = props;
-    const dataDetailOffice = detailProps.data;
+    const dispatch = useDispatch()
+    const dataDetailOffice = props?.data;
     console.log(dataDetailOffice,'data detail')
     const [detailDisable, setDetailDisable] = React.useState(true)
-    const history = useHistory();
+    const [openModals, setOpenModals] = useState(false)
+    const [error, setError] = useState(false)
+    useEffect(()=>{
+      if(dataDetailOffice === undefined){
+        setDetailDisable(false)
+        console.log("tew")
+      }else{
+        setDetailDisable(true)
+        console.log("yaw")
+      }
+    },[dataDetailOffice])
+    const handleDetailDisable =()=>{
+      setDetailDisable(true)
+    }
     const loginForm = (
       <Formik
         initialValues={{
-          article: dataDetailOffice.artikel,
-          tipe: dataDetailOffice.tipe,
-          kategori: dataDetailOffice.kategori,
-          namaBarang: dataDetailOffice.nama_barang,
-          kuantitas: dataDetailOffice.kuantitas,
-          ukuran: dataDetailOffice.ukuran,
-          kuantitas_keluar: dataDetailOffice.kuantitas_keluar,
-          kuantitas_masuk: dataDetailOffice.kuantitas_masuk,
-          stock: dataDetailOffice.stock,
-          stock_opname: dataDetailOffice.stock_opname,
-          Keterangan: dataDetailOffice.keterangan
+          article: dataDetailOffice?.artikel,
+          tipe: dataDetailOffice?.type,
+          kategori: dataDetailOffice?.kategori,
+          namaBarang: dataDetailOffice?.nama_barang,
+          kuantitas: dataDetailOffice?.kuantitas,
+          ukuran: dataDetailOffice?.ukuran,
+          kuantitas_keluar: dataDetailOffice?.kuantitas_keluar,
+          kuantitas_masuk: dataDetailOffice?.kuantitas_masuk,
+          stock: dataDetailOffice?.stock,
+          stock_opname: dataDetailOffice?.stock_opname,
+          Keterangan: dataDetailOffice?.keterangan,
+          sku_code: dataDetailOffice?.sku_code,
+          id:dataDetailOffice?.id
         }}
         enableReinitialize={true}
         validate={(values) => {
           const errors = {};
-          if (!values.username) {
-            errors.user = "Silahkan Masukan Username";
-          }
-          if (!values.password) {
-            errors.password = "Silahkan Masukan Kata Sandi";
-          }
+          // if (!values.username) {
+          //   errors.user = "Silahkan Masukan Username";
+          // }
+          // if (!values.password) {
+          //   errors.password = "Silahkan Masukan Kata Sandi";
+          // }
           return errors;
         }}
         onSubmit={async (values, { setSubmitting }) => {
-          // history.push('/dashboard')
-          const user = {
-            user: values.username,
-          };
-          console.log("login");
-          localStorage.setItem("rdprjt");
-          setSubmitting(false);
+          const formData = new FormData
+          formData.append('artikel', values.article);   //append the values with key, value pair
+          formData.append('kategori ', values.kategori);  //append the values with key, value pair
+          formData.append('nama_barang ', values.namaBarang);
+          formData.append('nama_kategori ', values.kategori);   //append the values with key, value pair
+          formData.append('sku_code', values.sku_code);
+          formData.append('stock_opname', values.stock_opname);   //append the values with key, value pair
+          formData.append('type', values.tipe);
+          formData.append('type_name', values.tipe);
+          formData.append('id',values.id)
+          if (dataDetailOffice === undefined){
+            const resp = await dispatch(addStockOpname('add',formData))
+            if (resp.type === "POST_STOCK_OPNAME_SUCCESSS") {
+              props.onClose()
+              dispatch(getStockOpname())
+              setError(false)
+              setOpenModals(true)
+              detailDisable(true)
+            } else {
+              setError(true)
+              setOpenModals(true)
+              detailDisable(true)
+            }
+          }else{
+            const resp = await dispatch(addStockOpname('update',formData))
+            if(resp.type === "POST_STOCK_OPNAME_SUCCESSS"){
+              props.onClose()
+              dispatch(getStockOpname())
+              setError(false)
+              setOpenModals(true)
+            }else{
+              setError(true)
+              setOpenModals(true)
+            }
+          }
+                  
+        setSubmitting(false);
         }}
       >
         {({
@@ -113,7 +162,7 @@ import {
                     background: "#FFF",
                   }}
                 >
-                  <h2>Form Barang Masuk</h2>
+                  <h2>Form Stock Opname</h2>
                   <div
                     align="left"
                     style={{
@@ -132,6 +181,26 @@ import {
                    <Input
                       value={values.article}
                       onChange={handleChange("article")}
+                      // label="Masukan "
+                     disable={detailDisable}
+                      style={{
+                        width: "100%",
+                        borderRadius: "4px",
+                        //   background: '#4C4E5B',
+                      }}
+                    />
+                     <Typography
+                      style={{
+                        fontSize: "20px",
+                        fontWeight: "bold",
+                        color: "#717171",
+                      }}
+                    >
+                      SKU Code
+                    </Typography>
+                   <Input
+                      value={values.sku_code}
+                      onChange={handleChange("sku_code")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -304,12 +373,37 @@ import {
                       }}
                     />
                     <Gap height={35} />
+                    <div  style={
+                        detailDisable === true ? {display:'none'} :
+                        {}}>
+                   <Button
+                      onClick={handleSubmit}
+                      label="Submit"
+                      style={
+                        detailDisable === true ? {display:'none'} :
+                        {
+                        width: "100%",
+                        padding: "0.5em",
+                        background: "rgb(81 94 193)",
+                        borderRadius: "15px",
+                        color: "white",
+                        fontSize: "20px",
+                        textTransform: "capitalize",
+                        marginBottom: "25px",
+                        // padding:"1em"
+                      }}
+                    />
+                   </div>
                     <div style={
                         detailDisable === true ? {display:'none'} :
                         {}}>
                     <Button
-                      onClick={() => {
-                        setDetailDisable(true)
+                      onClick={()=>{
+                        if(dataDetailOffice === undefined){
+                          props.onClose()
+                        }else{
+                          setDetailDisable(true)
+                        }
                       }}
                       label="Kembali"
                       style={
@@ -327,29 +421,7 @@ import {
                       }}
                     />
                     </div>
-                   <div  style={
-                        detailDisable === true ? {display:'none'} :
-                        {}}>
-                   <Button
-                      onClick={() => {
-                        setDetailDisable(false)
-                      }}
-                      label="Submit"
-                      style={
-                        detailDisable === true ? {display:'none'} :
-                        {
-                        width: "100%",
-                        padding: "0.5em",
-                        background: "rgb(81 94 193)",
-                        borderRadius: "15px",
-                        color: "white",
-                        fontSize: "20px",
-                        textTransform: "capitalize",
-                        marginBottom: "25px",
-                        // padding:"1em"
-                      }}
-                    />
-                   </div>
+                  
                     <div  style={
                         detailDisable === false ? {display:'none'} :
                         {}}>
@@ -382,6 +454,58 @@ import {
     return (
       <>
         <div>{loginForm}</div>
+        <Dialog open={openModals} onClose={() => {
+        setOpenModals(false)
+      }}>
+        <DialogContent
+          style={{
+            width: "100%",
+            borderRadius:"15px"
+          }}
+        >
+          <div align="center">
+          {
+            error === false ? (
+              <>
+                <CheckCircleIcon
+                    style={{
+                      color:"#1572A1",
+                      fontSize:"50px"
+                    }}
+                />
+              </>
+              ):(
+                  <>
+                     <ErrorIcon style={{
+                      color:"#FF5959",
+                      fontSize:"50px"
+                    }}/>
+                </>
+              )
+          }
+          <Typography>
+            {error === false ? 'Data Penyimpanan Stock Opname Tersimpan' : 'Tambah Penyimpanan Barang Gagal'}
+          </Typography>
+          <Gap height={25}/>
+          <Button
+            onClick={() => {
+              setOpenModals(false)
+            }}
+            label="Ok"
+            style={{
+              width: "100%",
+              padding: "0.5em",
+              background: "rgb(81 94 193)",
+              borderRadius: "15px",
+              color: "white",
+              fontSize: "20px",
+              textTransform: "capitalize",
+              // padding:"1em"
+            }}
+          />
+          </div>
+        </DialogContent>
+      </Dialog>
       </>
     );
   }
