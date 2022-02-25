@@ -237,7 +237,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Total Penjualan</Typography>
-                        <Typography fontSize={20}>{Penjualan}</Typography>
+                        <Typography fontSize={20}>{Penjualan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
@@ -251,7 +251,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Biaya</Typography>
-                        <Typography fontSize={20}>{Biaya}</Typography>
+                        <Typography fontSize={20}>{Biaya.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                       </div>
                     </div>
                   </div>
@@ -267,7 +267,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Pendapatan</Typography>
-                        <Typography fontSize={20}>Rp {Pendapatan}</Typography>
+                        <Typography fontSize={20}>Rp {Pendapatan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
@@ -281,7 +281,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Keuntungan</Typography>
-                        <Typography fontSize={20}>Rp {Keuntungan}</Typography>
+                        <Typography fontSize={20}>Rp {Keuntungan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                       </div>
                     </div>
                   </div>
@@ -309,7 +309,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Total Pembelian</Typography>
-                        <Typography fontSize={20}>{Pembelian}</Typography>
+                        <Typography fontSize={20}>{Pembelian.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                       </div>
                     </div>
                     <div style={{ display: "flex" }}>
@@ -323,7 +323,7 @@ function Dashboard(props) {
                       />{" "}
                       <div align="left">
                         <Typography fontSize={15}>Biaya</Typography>
-                        <Typography fontSize={20}>Rp {BiayaPembelian}</Typography>
+                        <Typography fontSize={20}>Rp {BiayaPembelian.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                       </div>
                     </div>
                   </div>
@@ -378,7 +378,7 @@ function Dashboard(props) {
                       }}
                     />{" "}
                     <div align="left">
-                      <Typography fontSize={20}>{JumlahProduct}</Typography>
+                      <Typography fontSize={20}>{JumlahProduct.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                     </div>
                   </div>
                   <div
@@ -393,7 +393,7 @@ function Dashboard(props) {
                       }}
                     />{" "}
                     <div align="left">
-                      <Typography fontSize={20}>Rp {Pendapatan}</Typography>
+                      <Typography fontSize={20}>Rp {Pendapatan.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                     </div>
                   </div>
                   <div
@@ -408,7 +408,7 @@ function Dashboard(props) {
                       }}
                     />{" "}
                     <div align="left">
-                      <Typography fontSize={20}>{Pembelian}</Typography>
+                      <Typography fontSize={20}>{Pembelian.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                     </div>
                   </div>
                 </div>
@@ -435,7 +435,7 @@ function Dashboard(props) {
                     />
                     <div align="left">
                       <Typography fontSize={15}>Costumers</Typography>
-                      <Typography fontSize={50}>{JumlahCustomer}</Typography>
+                      <Typography fontSize={50}>{JumlahCustomer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                     </div>
                   </div>
                   <div style={{ display: "flex" }}>
@@ -450,7 +450,7 @@ function Dashboard(props) {
                     />
                     <Typography fontSize={15}>Supplier</Typography>{" "}
                     <div align="left">
-                      <Typography fontSize={50}>{JumlahSupplier}</Typography>
+                      <Typography fontSize={50}>{JumlahSupplier.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Typography>
                     </div>
                   </div>
                 </div>

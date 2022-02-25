@@ -70,7 +70,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   padding: theme.spacing(0, 1),
-  background:"rgb(81, 94, 193)",
+  background: "rgb(81, 94, 193)",
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: 'flex-end',
@@ -82,6 +82,8 @@ export default function PersistentDrawerLeft() {
   const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const openMenu = Boolean(anchorEl);
+  const Name = JSON.parse(localStorage.getItem("rd-prjt"));
+  // console.log(Name.namaPengguna)
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -111,19 +113,19 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <div style={{
-            position:"absolute",
-            right:0,
-            display:"flex",
-            cursor:"pointer"
+            position: "absolute",
+            right: 0,
+            display: "flex",
+            cursor: "pointer"
           }}
-          onClick={handleClick}
+            onClick={handleClick}
           >
-            <Avatar>A</Avatar>
-            <Typography style={{fontSize:"25px",marginLeft:"25px"}}>Akbar</Typography>
-            <KeyboardArrowDownIcon style={{fontSize:"35px",marginLeft:"25px"}}/>
+            <Avatar style={{textTransform:"capitalize"}}>{Name.namaPengguna.charAt(0)}</Avatar>
+            <Typography style={{ fontSize: "25px", marginLeft: "25px", textTransform:"capitalize" }}>{Name.namaPengguna}</Typography>
+            <KeyboardArrowDownIcon style={{ fontSize: "35px", marginLeft: "25px" }} />
           </div>
           <Paper>
-          <Menu
+            <Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={openMenu}
@@ -133,13 +135,13 @@ export default function PersistentDrawerLeft() {
               }}
               sx={{ width: 320, maxWidth: '100%' }}
             >
-              <MenuItem onClick={handleClose}><AccountCircleIcon style={{marginRight:"15px"}}/>Profile</MenuItem>
-              <MenuItem onClick={()=>{
+              <MenuItem onClick={handleClose}><AccountCircleIcon style={{ marginRight: "15px" }} />Profile</MenuItem>
+              <MenuItem onClick={() => {
                 handleClose();
                 history.push('/')
                 localStorage.removeItem('rd-prjt')
                 window.location.reload();
-              }}><LogoutIcon style={{marginRight:"15px"}}/>Logout</MenuItem>
+              }}><LogoutIcon style={{ marginRight: "15px" }} />Logout</MenuItem>
             </Menu>
           </Paper>
         </Toolbar>
@@ -151,8 +153,8 @@ export default function PersistentDrawerLeft() {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
-            background:"rgb(81, 94, 193)",
-            color:"#FFF"
+            background: "rgb(81, 94, 193)",
+            color: "#FFF"
           },
         }}
         variant="persistent"
@@ -160,316 +162,356 @@ export default function PersistentDrawerLeft() {
         open={open}
       >
         <DrawerHeader>
-        <img src={logo} alt="pic" style={{width:"80%"}}/> 
+          <img src={logo} alt="pic" style={{ width: "80%" }} />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
-        <List>
-            <ListItem>
+        <List style={{cursor:"pointer"}}>
+          <ListItem>
             <div>
-            <ListItem Button onClick={()=>{
-              history.push('/dashboard')
-            }}>
-                <Icon icon="bx:bxs-dashboard" style={{fontSize:"25px",marginRight:"5px"}}/>
+              <ListItem Button onClick={() => {
+                history.push('/dashboard')
+              }}>
+                <Icon icon="bx:bxs-dashboard" style={{ fontSize: "25px", marginRight: "5px" }} />
                 <Typography>Dashboard</Typography>
-            </ListItem>
-            <Accordion>
-            <div style={{position:"relative",width:"100%"}}>
-            <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-            >
-            <Icon icon="tabler:discount-2" style={{fontSize:"25px",marginRight:"5px"}}/>
-            <Typography>Penjualan</Typography>
-            <ExpandMoreIcon style={{
-              position:"absolute",
-              right:0
-            }}/>
-            </AccordionSummary>
-            </div>
+              </ListItem>
+              <Accordion>
+                <div style={{ position: "relative", width: "100%" }}>
+                  <AccordionSummary
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Icon icon="tabler:discount-2" style={{ fontSize: "25px", marginRight: "5px" }} />
+                    <Typography>Penjualan</Typography>
+                    <ExpandMoreIcon style={{
+                      position: "absolute",
+                      right: 0
+                    }} />
+                  </AccordionSummary>
+                </div>
                 <AccordionDetails>
-                  <List>
-                    <ListItem onClick={()=>{
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
                       history.push('/penjualan-store')
                     }}>
-                    <ListItemText primary="Penjualan Store" />
+                      <ListItemText primary="Penjualan Store" />
                     </ListItem>
-                    <ListItem onClick={()=>{
+                    <ListItem onClick={() => {
                       history.push('/penjualan-office')
                     }}>
-                    <ListItemText primary="Penjualan Office" />
+                      <ListItemText primary="Penjualan Office" />
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
-              <ListItem onClick={()=>{
-                      history.push('/pembelian')
-                    }}>
-                <Icon icon="icons8:buy" style={{fontSize:"25px",marginRight:"5px"}}/>
+              <ListItem onClick={() => {
+                history.push('/pembelian')
+              }}>
+                <Icon icon="icons8:buy" style={{ fontSize: "25px", marginRight: "5px" }} />
                 <Typography>Pembelian</Typography>
-            </ListItem>
+              </ListItem>
               <Accordion>
                 <AccordionSummary
-                  
+
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                   <Icon icon="eos-icons:product-classes" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Penyimpanan</Typography>
-                    <ExpandMoreIcon style={{
-                      position:"absolute",
-                      right:0
-                    }}/>
+                  <Icon icon="eos-icons:product-classes" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Penyimpanan</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
-                    <ListItem onClick={()=>{
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
                       history.push('/penyimpanan/barang-masuk')
                     }}>
-                    <ListItemText primary="Barang Masuk" />
+                      <ListItemText primary="Barang Masuk" />
                     </ListItem>
-                    <ListItem onClick={()=>{
+                    <ListItem onClick={() => {
                       history.push('/penyimpanan/barang-keluar')
                     }}>
-                    <ListItemText primary="Barang Keluar" />
+                      <ListItemText primary="Barang Keluar" />
                     </ListItem>
-                    <ListItem onClick={()=>{
+                    <ListItem onClick={() => {
                       history.push('/penyimpanan/stock-opname')
                     }}>
-                    <ListItemText primary="Stock Opname" />
+                      <ListItemText primary="Stock Opname" />
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
                 <AccordionSummary
-                  
+
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                   <Icon icon="mdi:truck-delivery-outline" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Pengiriman</Typography>
-                    <ExpandMoreIcon style={{
-                      position:"absolute",
-                      right:0
-                    }}/>
+                  <Icon icon="mdi:truck-delivery-outline" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Pengiriman</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
+                  <List style={{cursor:"pointer"}}>
                     <ListItem>
-                    <ListItemText primary="Dari Gudang ke Store" />
+                      <ListItemText primary="Dari Gudang ke Store" />
                     </ListItem>
                     <ListItem>
-                    <ListItemText primary="Dari Store ke Store" />
+                      <ListItemText primary="Dari Store ke Store" />
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
                 <AccordionSummary
-                  
+
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                   <Icon icon="ri:folder-received-line" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Penerimaan</Typography>
-                    <ExpandMoreIcon style={{
-                      position:"absolute",
-                      right:0
-                    }}/>
+                  <Icon icon="ri:folder-received-line" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Penerimaan</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
+                  <List style={{cursor:"pointer"}}>
                     <ListItem>
-                    <ListItemText primary="By Store" />
+                      <ListItemText primary="By Store" />
                     </ListItem>
                     <ListItem>
-                    <ListItemText primary="By Supplier" />
+                      <ListItemText primary="By Supplier" />
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
                 <AccordionSummary
-                  
+
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                   <Icon icon="mdi:cash-check" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Akuntansi</Typography>
-                    <ExpandMoreIcon style={{
-                      position:"absolute",
-                      right:0
-                    }}/>
+                  <Icon icon="mdi:cash-check" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Akuntansi</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
-                <ListItem>
-                    <ListItemText primary="Daftar Akun" />
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem>
+                      <ListItemText primary="Daftar Akun" />
                     </ListItem>
                     <ListItem>
-                    <ListItemText primary="Entri Jurnal" />
+                      <ListItemText primary="Entri Jurnal" />
                     </ListItem>
                     <ListItem>
-                    <Accordion>
-                      <AccordionSummary
-                        
-                        aria-controls="panel2a-content"
-                        id="panel2a-header"
-                      >
+                      <Accordion>
+                        <AccordionSummary
+
+                          aria-controls="panel2a-content"
+                          id="panel2a-header"
+                        >
                           <Typography>Statment</Typography>
                           <ExpandMoreIcon style={{
-                            position:"absolute",
-                            right:0
-                          }}/>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                      <List>
-                          <ListItem>
-                          <ListItemText primary="Jurnal Umum" />
-                          </ListItem>
-                          <ListItem>
-                          <ListItemText primary="Buku Besar" />
-                          </ListItem>
-                          <ListItem>
-                          <ListItemText primary="Neraca Saldo" />
-                          </ListItem>
-                          <ListItem>
-                          <ListItemText primary="Laporan Laba Rugi" />
-                          </ListItem>
-                          <ListItem>
-                          <ListItemText primary="Neraca Keuangan" />
-                          </ListItem>
-                        </List>
-                      </AccordionDetails>
-                    </Accordion>
+                            position: "absolute",
+                            right: 0
+                          }} />
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <List style={{cursor:"pointer"}}>
+                            <ListItem>
+                              <ListItemText primary="Jurnal Umum" />
+                            </ListItem>
+                            <ListItem>
+                              <ListItemText primary="Buku Besar" />
+                            </ListItem>
+                            <ListItem>
+                              <ListItemText primary="Neraca Saldo" />
+                            </ListItem>
+                            <ListItem>
+                              <ListItemText primary="Laporan Laba Rugi" />
+                            </ListItem>
+                            <ListItem>
+                              <ListItemText primary="Neraca Keuangan" />
+                            </ListItem>
+                          </List>
+                        </AccordionDetails>
+                      </Accordion>
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
                 <AccordionSummary
-                  
+
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                   <Icon icon="akar-icons:shipping-box-v1" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Produk</Typography>
-                    <ExpandMoreIcon style={{
-                        position:"absolute",
-                        right:0
-                      }}/>
+                  <Icon icon="akar-icons:shipping-box-v1" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Produk</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
-                          <ListItem>
-                          <ListItemText primary="Basic" />
-                          </ListItem>
-                          <ListItem>
-                          <ListItemText primary="Custom" />
-                          </ListItem>
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem>
+                      <ListItemText primary="Basic" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText primary="Custom" />
+                    </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
-              <ListItem onClick={()=>{
-                      history.push('/pelanggan')
-                    }}>
-                <Icon icon="clarity:group-solid" style={{fontSize:"25px",marginRight:"5px"}}/>
+              <ListItem onClick={() => {
+                history.push('/pelanggan')
+              }}>
+                <Icon icon="clarity:group-solid" style={{ fontSize: "25px", marginRight: "5px" }} />
                 <Typography>Pelanggan</Typography>
-            </ListItem>
-            <ListItem onClick={()=>{
-                      history.push('/karyawan')
-                    }}>
-                <Icon icon="clarity:group-solid" style={{fontSize:"25px",marginRight:"5px"}}/>
+              </ListItem>
+              <ListItem onClick={() => {
+                history.push('/karyawan')
+              }}>
+                <Icon icon="clarity:group-solid" style={{ fontSize: "25px", marginRight: "5px" }} />
                 <Typography>Karyawan</Typography>
-            </ListItem>
-              <ListItem onClick={()=>{
-                      history.push('/pemasok')
-                    }}>
-                <Icon icon="fa-solid:people-arrows" style={{fontSize:"25px",marginRight:"5px"}}/>
+              </ListItem>
+              <ListItem onClick={() => {
+                history.push('/pemasok')
+              }}>
+                <Icon icon="fa-solid:people-arrows" style={{ fontSize: "25px", marginRight: "5px" }} />
                 <Typography>Pemasok</Typography>
-            </ListItem>
-            <ListItem>
-                <Icon icon="carbon:report-data" style={{fontSize:"25px",marginRight:"5px"}}/>
-                <Typography>Laporan</Typography>
-            </ListItem>
+              </ListItem>
               <Accordion>
-                <AccordionSummary
-                  
+                <AccordionSummary 
                   aria-controls="panel2a-content"
-                  id="panel2a-header"
-                >
-                   <Icon icon="ant-design:idcard-filled" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Master</Typography>
+                  id="panel2a-header">
+                  <ListItem>
+                    <Icon icon="carbon:report-data" style={{ fontSize: "25px", marginRight: "5px" }} />
+                    <Typography>Laporan</Typography>
                     <ExpandMoreIcon style={{
-                        position:"absolute",
-                        right:0
-                      }}/>
+                    position: "absolute",
+                    right: 0
+                  }} />
+                  </ListItem>
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
-                    <ListItem onClick={()=>{
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
                       history.push('/master/kategori')
                     }}>
-                    <ListItemText primary="Master Kategori" />
+                      <ListItemText primary="Laporan Penjualan Store" />
                     </ListItem>
-                    <ListItem onClick={()=>{
-                      history.push('/master/tipe')
+                  </List>
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
+                      history.push('/master/kategori')
                     }}>
-                    <ListItemText primary="Master Tipe" />
+                      <ListItemText primary="Laporan Penjualan Office" />
                     </ListItem>
-                    <ListItem onClick={()=>{
-                      history.push('/master/Ukuran')
+                  </List>
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
+                      history.push('/master/kategori')
                     }}>
-                    <ListItemText primary="Master Ukuran" />
+                      <ListItemText primary="Laporan Best Article" />
                     </ListItem>
-                    <ListItem>
-                    <ListItemText primary="Master Store" />
-                    </ListItem>
-                    <ListItem>
-                    <ListItemText primary="Master Office" />
-                    </ListItem>
-                    <ListItem>
-                    <ListItemText primary="Master Project" />
-                    </ListItem>
-                    <ListItem>
-                    <ListItemText primary="Master Accessories" />
+                  </List>
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
+                      history.push('/master/kategori')
+                    }}>
+                      <ListItemText primary="Laporan Inventory" />
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
               <Accordion>
                 <AccordionSummary
-                  
+
                   aria-controls="panel2a-content"
                   id="panel2a-header"
                 >
-                   <Icon icon="carbon:user-settings" style={{fontSize:"25px",marginRight:"5px"}}/>
-                    <Typography>Management User</Typography>
-                    <ExpandMoreIcon style={{
-                        position:"absolute",
-                        right:0
-                      }}/>
+                  <Icon icon="ant-design:idcard-filled" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Master</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
                 </AccordionSummary>
                 <AccordionDetails>
-                <List>
-                    <ListItem>
-                    <ListItemText primary="Management User" />
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem onClick={() => {
+                      history.push('/master/kategori')
+                    }}>
+                      <ListItemText primary="Master Kategori" />
+                    </ListItem>
+                    <ListItem onClick={() => {
+                      history.push('/master/tipe')
+                    }}>
+                      <ListItemText primary="Master Tipe" />
+                    </ListItem>
+                    <ListItem onClick={() => {
+                      history.push('/master/Ukuran')
+                    }}>
+                      <ListItemText primary="Master Ukuran" />
                     </ListItem>
                     <ListItem>
-                    <ListItemText primary="User Grup Pengguna" />
+                      <ListItemText primary="Master Store" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText primary="Master Office" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText primary="Master Project" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText primary="Master Accessories" />
                     </ListItem>
                   </List>
                 </AccordionDetails>
               </Accordion>
-              </div>
-            </ListItem>
+              <Accordion>
+                <AccordionSummary
+
+                  aria-controls="panel2a-content"
+                  id="panel2a-header"
+                >
+                  <Icon icon="carbon:user-settings" style={{ fontSize: "25px", marginRight: "5px" }} />
+                  <Typography>Management User</Typography>
+                  <ExpandMoreIcon style={{
+                    position: "absolute",
+                    right: 0
+                  }} />
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List style={{cursor:"pointer"}}>
+                    <ListItem>
+                      <ListItemText primary="Management User" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemText primary="User Grup Pengguna" />
+                    </ListItem>
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+            </div>
+          </ListItem>
         </List>
 
       </Drawer>
       <Main open={open}>
-          <Routes/>
+        <Routes />
       </Main>
 
     </Box>

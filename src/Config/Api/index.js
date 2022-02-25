@@ -2117,7 +2117,7 @@ async function updatePemasok(params) {
 async function postPelanggan(params) {
 	// console.log('login')
 	try {
-		const url = `${BASE_URL}pelanggan/all?${params}`;
+		const url = `${BASE_URL}pelanggan/?${params}`;
 		const headers = {
 			...defaultHeaders
 		};

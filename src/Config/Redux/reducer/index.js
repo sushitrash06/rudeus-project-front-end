@@ -83,6 +83,15 @@ import {
   GET_MASTER_UKURAN,
   GET_MASTER_UKURAN_SUCCESS,
   GET_MASTER_UKURAN_FAIL,
+  GET_PELANGGAN,
+  GET_PELANGGAN_FAIL,
+  GET_PELANGGAN_SUCCESS,
+  DELETE_PELANGGAN,
+  DELETE_PELANGGAN_FAIL,
+  DELETE_PELANGGAN_SUCCESS,
+  POST_PELANGGAN,
+  POST_PELANGGAN_FAIL,
+  POST_PELANGGAN_SUCCESS,
   }
     from '../ActionType'
 
@@ -221,6 +230,21 @@ import {
           loading: false,
           error: false,
           data: {},
+        },
+        postPelanggan:{
+          loading: false,
+          error: false,
+          data: {},
+        },
+        getPelanggan:{
+          loading: false,
+          error: false,
+          data: [],
+        },
+        deletePelanggan:{
+          loading: false,
+          error: false,
+          data: null,
         }
     }
 
@@ -786,6 +810,66 @@ import {
                   ...state,
                   getDetailPesanan: { ...state.getDetailPesanan, loading: false, error: action.payload },
                 };
+                case GET_PELANGGAN:
+                  return {
+                    ...state,
+                    getPelanggan: { ...state.getPelanggan, loading: true, error: false },
+                  };
+                case GET_PELANGGAN_SUCCESS:
+                  return {
+                    ...state,
+                    getPelanggan: {
+                      ...state.getPelanggan,
+                      loading: false,
+                      error: false,
+                      data: action.payload,
+                    },
+                  };
+                case GET_PELANGGAN_FAIL:
+                  return {
+                    ...state,
+                    getPelanggan: { ...state.getPelanggan, loading: false, error: action.payload },
+                  };
+                  case POST_PELANGGAN:
+                    return {
+                      ...state,
+                      postPelanggan: { ...state.postPelanggan, loading: true, error: false },
+                    };
+                  case POST_PELANGGAN_SUCCESS:
+                    return {
+                      ...state,
+                      postPelanggan: {
+                        ...state.postPelanggan,
+                        loading: false,
+                        error: false,
+                        data: action.payload,
+                      },
+                    };
+                  case POST_PELANGGAN_FAIL:
+                    return {
+                      ...state,
+                      postPelanggan: { ...state.postPelanggan, loading: false, error: action.payload },
+                    };
+                    case DELETE_PELANGGAN:
+                      return {
+                        ...state,
+                        deletePelanggan: { ...state.deletePelanggan, loading: true, error: false },
+                      };
+                    case DELETE_PELANGGAN_SUCCESS:
+                      return {
+                        ...state,
+                        deletePelanggan: {
+                          ...state.deletePelanggan,
+                          loading: false,
+                          error: false,
+                          data: action.payload,
+                        },
+                      };
+                    case DELETE_PELANGGAN_FAIL:
+                      return {
+                        ...state,
+                        deletePelanggan: { ...state.deletePelanggan, loading: false, error: action.payload },
+                      };
                 default:
                     return state;
         }

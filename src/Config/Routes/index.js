@@ -29,12 +29,25 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 	);
 };
 
+const RouteBefore = ({ component: Component, ...rest }) => {
+	const accessToken = localStorage.getItem("rd-prjt");
+
+	return (
+		<Route
+			{...rest}
+			render={(props) =>
+				!accessToken ? <Component {...props} /> : <Redirect to='/dashboard' />
+			}
+		/>
+	);
+};
+
 
 function Routes() {
   return (
     // <Router>
       <Switch>
-        <Route exact path='/' component={Login} />
+        <RouteBefore exact path='/' component={Login} />
         <PrivateRoute exact path='/dashboard' component={Dashboard} />
         <PrivateRoute exact path='/penjualan-store' component={PenjualanStore}/>
         <PrivateRoute exact path='/penjualan-office' component={PenjualanOffice}/>

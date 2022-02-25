@@ -83,6 +83,15 @@ import {
     GET_MASTER_UKURAN,
     GET_MASTER_UKURAN_SUCCESS,
     GET_MASTER_UKURAN_FAIL,
+    GET_PELANGGAN,
+    GET_PELANGGAN_FAIL,
+    GET_PELANGGAN_SUCCESS,
+    DELETE_PELANGGAN,
+    DELETE_PELANGGAN_FAIL,
+    DELETE_PELANGGAN_SUCCESS,
+    POST_PELANGGAN,
+    POST_PELANGGAN_FAIL,
+    POST_PELANGGAN_SUCCESS,
 
 } from '../ActionType'
 import {api} from '../../Api/index';
@@ -892,5 +901,88 @@ export const getMasterukuranFail = (data) => dispatch => {
     })
 }
 
+export const postPelanggan = (params) => dispatch => {
+    dispatch({
+        type: POST_PELANGGAN
+    });
+
+    const request = api.postPelanggan(params);
+    return request.then(
+        response =>dispatch(postPelangganSuccess(response)),
+        err => dispatch(postPelangganFail(err))
+    );
+};
+
+export const postPelangganSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: POST_PELANGGAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const postPelangganFail = (data) => dispatch => {
+    return dispatch({
+        type: POST_PELANGGAN_FAIL,
+        payload: data
+    })
+}
+
+export const getPelanggan = (params) => dispatch => {
+    dispatch({
+        type: GET_PELANGGAN
+    });
+
+    const request = api.getPelanggan(params);
+    return request.then(
+        response =>dispatch(getPelangganSuccess(response)),
+        err => dispatch(getPelangganFail(err))
+    );
+};
+
+export const getPelangganSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_PELANGGAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const getPelangganFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_PELANGGAN_FAIL,
+        payload: data
+    })
+}
+
+export const deletePelanggan = (params) => dispatch => {
+    dispatch({
+        type: DELETE_PELANGGAN
+    });
+
+    const request = api.deletePelanggan(params);
+    return request.then(
+        response =>dispatch(deletePelangganSuccess(response)),
+        err => dispatch(deletePelangganFail(err))
+    );
+};
+
+export const deletePelangganSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DELETE_PELANGGAN_SUCCESS,
+        payload: data
+    })
+}
+
+export const deletePelangganFail = (data) => dispatch => {
+    return dispatch({
+        type: DELETE_PELANGGAN_FAIL,
+        payload: data
+    })
+}
 
 

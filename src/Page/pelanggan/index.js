@@ -27,13 +27,14 @@ import Input from '../../Component/input/index'
 import {FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SearchIcon from '@mui/icons-material/Search'
-import FormPembelian from '../../Page/FormPembelian/index'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Gap from '../../Component/gap/index';
 import clsx from 'clsx';
-import { getPembelian } from '../../Config/Redux/action';
+import { getPelanggan, getPembelian } from '../../Config/Redux/action';
+import { FormPelanggan } from '..';
+import Add from '@mui/icons-material/Add';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -68,58 +69,40 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-      id: "tanggal_transaksi",
-      label: "Tanggal Transaksi",
+      id: "tanggal_join",
+      label: "Tanggal Join",
       disablePadding: true,
       numeric: false,
     },
     {
-      id: "artikel",
-      label: "Artikel",
+      id: "nama_pelanggan",
+      label: "Nama Pelanggan",
       disablePadding: true,
       numeric: false,
     },
     {
-      id: "kategori",
-      label: "Kategori",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "tipe",
-      label: "Tipe",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "nama_barang",
-      label: "Nama Barang",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "kuantitas",
-      label: "Kuantitas",
+      id: "alamat",
+      label: "Alamat",
       numeric: true,
       disablePadding: true,
     },
     {
-      id: "ukuran",
-      label: "Ukuran",
-      numeric: true,
+      id: "no_hp",
+      label: "Nomor Hp",
       disablePadding: true,
+      numeric: false,
     },
     {
-      id: "hpp",
-      label: "HPP",
-      numeric: true,
+      id: "total_kunjungan",
+      label: "Total Kunjungan",
       disablePadding: true,
+      numeric: false,
     },
     {
-      id: "total",
-      label: "Total",
-      numeric: true,
+      id: "total_pembelian",
+      label: "Total Pembelian",
       disablePadding: true,
+      numeric: false,
     },
     {
       id: "aksi",
@@ -182,13 +165,14 @@ export default function Pelanggan() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [toBeSelected, settoBeSelected] = React.useState({});
   const dispatch = useDispatch();
-  const dataStore = useSelector((state)=> state.reducer.getPembelian.data)
+  const dataStore = useSelector((state)=> state.reducer.getPelanggan.data)
   const [openDetail,setOpenDetail] = React.useState(false)
   const [rows, setRows] = React.useState(dataStore)
   const [searched, setSearched] = React.useState();
+  const [openDetailAdd,setOpenDetailAdd] = React.useState(false)
   const [cari, setCari] = React.useState();
   useEffect(()=>{
-    dispatch(getPembelian())
+    dispatch(getPelanggan())
   },[])
   useEffect(()=>{
     setRows(dataStore)
@@ -260,7 +244,7 @@ export default function Pelanggan() {
       marginTop:"5%"
     }}>
       <div style={{display:'flex'}}>
-      <h1>Pembelian</h1>
+      <h1>Pelanggan</h1>
             <div
              style={{
                  position:"absolute",
@@ -270,7 +254,7 @@ export default function Pelanggan() {
             >
             <Button
                 style={{
-                    background: "#E14C4C",
+                    background: "rgb(81, 94, 193)",
                     color: 'white',
                     textTransform: 'capitalize',
                     marginRight:"15px",
@@ -278,8 +262,11 @@ export default function Pelanggan() {
                     padding:"1em",
                     borderRadius:"14px"
                 }}
-                label="Hapus"
-                startIcon={<DeleteIcon/>}
+                label="Tambah"
+                startIcon={<Add/>}
+                onClick={()=>{
+                  setOpenDetailAdd(true)
+                }}
            />
            <Button
                 style={{
@@ -356,20 +343,19 @@ export default function Pelanggan() {
                       key={row.id}
                       selected={isItemSelected}
                     >
-                      <TableCell align="left">{row.tanggal_transaksi}</TableCell>
-                      <TableCell align="left">{row.artikel}</TableCell>
-                      <TableCell align="left">{row.kategori}</TableCell>
-                      <TableCell align="left">{row.tipe}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.nama_barang}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.ukuran}</TableCell>
-                      <TableCell align="left">{row.hpp}</TableCell>
-                      <TableCell align="left">{row.total}</TableCell>
+                      <TableCell align="left">{row.tanggal_join}</TableCell>
+                      <TableCell align="left">{row.nama_pelanggan}</TableCell>
+                      <TableCell align="left">{row.alamat}</TableCell>
+                      <TableCell align="left">{row.no_hp}</TableCell>
+                      <TableCell align="left">{row.total_kunjungan}</TableCell>
+                      <TableCell align="left">{row.total_pembelian}</TableCell>
                       <TableCell align="right">
-                      <div style={{
-                        marginLeft:"-100px"
+                      <div  style={{display:"flex"}}>
+                      <IconButton onClick={()=>{
+                        handleOpenDetail(row)
                       }}>
+                          <DeleteIcon />
+                        </IconButton>
                       <IconButton onClick={()=>{
                         handleOpenDetail(row)
                       }}>
@@ -403,11 +389,17 @@ export default function Pelanggan() {
         />
       </Paper>
     </Box>
-    <FormPembelian
+    <FormPelanggan
     open={openDetail}
     data={toBeSelected}
     onClose={()=>{
       setOpenDetail(false)
+    }}
+    />
+    <FormPelanggan
+    open={openDetailAdd}
+    onClose={()=>{
+      setOpenDetailAdd(false)
     }}
     />
     </div>
