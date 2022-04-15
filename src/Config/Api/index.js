@@ -1990,9 +1990,9 @@ async function getPemasok(params) {
 async function postPemasok(params) {
 	// console.log('login')
 	try {
-		const url = `${BASE_URL}pemasok/all?${params}`;
+		const url = `${BASE_URL}pemasok/add?${params}`;
 		const headers = {
-			...defaultHeaders
+			...defaultHeadersPost
 		};
 		const response = await axios({
 			method: 'POST',
@@ -2119,7 +2119,7 @@ async function postPelanggan(params) {
 	try {
 		const url = `${BASE_URL}pelanggan/?${params}`;
 		const headers = {
-			...defaultHeaders
+			...defaultHeadersPost
 		};
 		const response = await axios({
 			method: 'POST',

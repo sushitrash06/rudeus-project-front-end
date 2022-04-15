@@ -1,15 +1,10 @@
 import {
-  Checkbox,
   Dialog,
   DialogContent,
-  FormControlLabel,
-  FormGroup,
-  TableFooter,
   Typography,
 } from "@mui/material";
 import { Formik } from "formik";
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/logo.png";
 import Gap from "../../Component/gap";
 import  Input  from "../../Component/input";
 import Button from "../../Component/button";
@@ -49,18 +44,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 function DetailPenjualanStore(props) {
   const dispatch = useDispatch()
-  const detailTable = useSelector((state)=> state.reducer.getDetailPesanan.data)
-  const propsData = props;
   const detail = props.data;
   const id = props.data?.id_transaksi;
-  const [dataDetail, setDataDetail] = useState(data[0]);
+  // const [dataDetail, setDataDetail] = useState(data[0]);
   useEffect(()=>{
       dispatch(getDetailPesanan(`id_transaksi=${id}`))
   },[])
   // console.log(detail,'detail');
-  const [dataTable, setDataTable] = useState(dataDetail.detailPenjualan);
+  // const [dataTable, setDataTable] = useState(dataDetail.detailPenjualan);
 
-  const history = useHistory();
+  // const history = useHistory();
   const loginForm = (
     <Formik
       initialValues={{
@@ -97,14 +90,7 @@ function DetailPenjualanStore(props) {
     >
       {({
         values,
-        errors,
-        touched,
         handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        isValid,
-        dirty,
       }) => (
         <Dialog
           open={props.open}

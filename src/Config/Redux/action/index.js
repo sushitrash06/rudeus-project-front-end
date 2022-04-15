@@ -92,6 +92,15 @@ import {
     POST_PELANGGAN,
     POST_PELANGGAN_FAIL,
     POST_PELANGGAN_SUCCESS,
+    GET_PEMASOK,
+    GET_PEMASOK_FAIL,
+    GET_PEMASOK_SUCCESS,
+    DELETE_PEMASOK,
+    DELETE_PEMASOK_FAIL,
+    DELETE_PEMASOK_SUCCESS,
+    POST_PEMASOK,
+    POST_PEMASOK_FAIL,
+    POST_PEMASOK_SUCCESS,
 
 } from '../ActionType'
 import {api} from '../../Api/index';
@@ -984,5 +993,92 @@ export const deletePelangganFail = (data) => dispatch => {
         payload: data
     })
 }
+
+
+export const postPemasok = (params) => dispatch => {
+    dispatch({
+        type: POST_PEMASOK
+    });
+
+    const request = api.postPemasok(params);
+    return request.then(
+        response =>dispatch(postPemasokSuccess(response)),
+        err => dispatch(postPemasokFail(err))
+    );
+};
+
+export const postPemasokSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: POST_PEMASOK_SUCCESS,
+        payload: data
+    })
+}
+
+export const postPemasokFail = (data) => dispatch => {
+    return dispatch({
+        type: POST_PEMASOK_FAIL,
+        payload: data
+    })
+}
+
+export const getPemasok = (params) => dispatch => {
+    dispatch({
+        type: GET_PEMASOK
+    });
+
+    const request = api.getPemasok(params);
+    return request.then(
+        response =>dispatch(getPemasokSuccess(response)),
+        err => dispatch(getPemasokFail(err))
+    );
+};
+
+export const getPemasokSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: GET_PEMASOK_SUCCESS,
+        payload: data
+    })
+}
+
+export const getPemasokFail = (data) => dispatch => {
+    return dispatch({
+        type: GET_PEMASOK_FAIL,
+        payload: data
+    })
+}
+
+export const deletePemasok = (params) => dispatch => {
+    dispatch({
+        type: DELETE_PEMASOK
+    });
+
+    const request = api.deletePemasok(params);
+    return request.then(
+        response =>dispatch(deletePemasokSuccess(response)),
+        err => dispatch(deletePemasokFail(err))
+    );
+};
+
+export const deletePemasokSuccess = ({
+    data
+}) => dispatch => {
+    return dispatch({
+        type: DELETE_PEMASOK_SUCCESS,
+        payload: data
+    })
+}
+
+export const deletePemasokFail = (data) => dispatch => {
+    return dispatch({
+        type: DELETE_PEMASOK_FAIL,
+        payload: data
+    })
+}
+
+
 
 

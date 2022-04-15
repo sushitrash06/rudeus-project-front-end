@@ -8,7 +8,6 @@ import Button from '../../Component/button'
 import { useHistory } from 'react-router-dom';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import background from '../../assets/background_login.png'
 import { useDispatch } from 'react-redux';
 import { login } from '../../Config/Redux/action';
 
@@ -61,7 +60,8 @@ function Login(props) {
         })=>(
             <div style={{
                 width:"100%",
-                margin:"0"
+                margin:"0",
+                zIndex: 9999
             }}
             align="center"
             >
@@ -71,7 +71,8 @@ function Login(props) {
                 style={{
                     width:"500px",
                     height:"400px",
-                    background:"#FFF"
+                    background:"#FFF",
+                    zIndex: 9999
                 }}
                >
                    <Gap height="20px"/>
@@ -181,9 +182,11 @@ function Login(props) {
             {/* {loginForm} */}
             <div className="overlay-img">
             </div>
+              
             <div className="login-form">
-                    {loginForm}
+                {loginForm}
             </div>
+           
         </div>
     );
 }

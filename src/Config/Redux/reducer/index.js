@@ -92,6 +92,15 @@ import {
   POST_PELANGGAN,
   POST_PELANGGAN_FAIL,
   POST_PELANGGAN_SUCCESS,
+  GET_PEMASOK,
+  GET_PEMASOK_FAIL,
+  GET_PEMASOK_SUCCESS,
+  DELETE_PEMASOK,
+  DELETE_PEMASOK_FAIL,
+  DELETE_PEMASOK_SUCCESS,
+  POST_PEMASOK,
+  POST_PEMASOK_FAIL,
+  POST_PEMASOK_SUCCESS,
   }
     from '../ActionType'
 
@@ -242,6 +251,21 @@ import {
           data: [],
         },
         deletePelanggan:{
+          loading: false,
+          error: false,
+          data: null,
+        },
+        postPemasok:{
+          loading: false,
+          error: false,
+          data: {},
+        },
+        getPemasok:{
+          loading: false,
+          error: false,
+          data: [],
+        },
+        deletePemasok:{
           loading: false,
           error: false,
           data: null,
@@ -869,6 +893,66 @@ import {
                       return {
                         ...state,
                         deletePelanggan: { ...state.deletePelanggan, loading: false, error: action.payload },
+                      };
+                case GET_PEMASOK:
+                  return {
+                    ...state,
+                    getPemasok: { ...state.getPemasok, loading: true, error: false },
+                  };
+                case GET_PEMASOK_SUCCESS:
+                  return {
+                    ...state,
+                    getPemasok: {
+                      ...state.getPemasok,
+                      loading: false,
+                      error: false,
+                      data: action.payload,
+                    },
+                  };
+                case GET_PEMASOK_FAIL:
+                  return {
+                    ...state,
+                    getPemasok: { ...state.getPemasok, loading: false, error: action.payload },
+                  };
+                  case POST_PEMASOK:
+                    return {
+                      ...state,
+                      postPemasok: { ...state.postPemasok, loading: true, error: false },
+                    };
+                  case POST_PEMASOK_SUCCESS:
+                    return {
+                      ...state,
+                      postPemasok: {
+                        ...state.postPemasok,
+                        loading: false,
+                        error: false,
+                        data: action.payload,
+                      },
+                    };
+                  case POST_PEMASOK_FAIL:
+                    return {
+                      ...state,
+                      postPemasok: { ...state.postPemasok, loading: false, error: action.payload },
+                    };
+                    case DELETE_PEMASOK:
+                      return {
+                        ...state,
+                        deletePemasok: { ...state.deletePemasok, loading: true, error: false },
+                      };
+                    case DELETE_PEMASOK_SUCCESS:
+                      return {
+                        ...state,
+                        deletePemasok: {
+                          ...state.deletePemasok,
+                          loading: false,
+                          error: false,
+                          data: action.payload,
+                        },
+                      };
+                    case DELETE_PEMASOK_FAIL:
+                      return {
+                        ...state,
+                        deletePemasok: { ...state.deletePemasok, loading: false, error: action.payload },
                       };
                 default:
                     return state;

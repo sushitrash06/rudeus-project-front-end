@@ -10,30 +10,22 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import Checkbox from '@mui/material/Checkbox';
 import IconButton from '@mui/material/IconButton';
-import Tooltip from '@mui/material/Tooltip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
-import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import Button from '../../Component/button/index'
-import Input from '../../Component/input/index'
 import {FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SearchIcon from '@mui/icons-material/Search'
-import FormPembelian from '../../Page/FormPembelian/index'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import Gap from '../../Component/gap/index';
-import clsx from 'clsx';
-import { getPembelian } from '../../Config/Redux/action';
+import { getPemasok } from '../../Config/Redux/action';
+import { FormPemasok } from '..';
+import Add from '@mui/icons-material/Add';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -68,58 +60,52 @@ function stableSort(array, comparator) {
 
 const headCells = [
     {
-      id: "tanggal_transaksi",
-      label: "Tanggal Transaksi",
+      id: "tanggal_join",
+      label: "Tanggal Join",
       disablePadding: true,
       numeric: false,
     },
     {
-      id: "artikel",
-      label: "Artikel",
+      id: "nama_pemasok",
+      label: "Nama Pemasok",
       disablePadding: true,
       numeric: false,
     },
     {
-      id: "kategori",
-      label: "Kategori",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "tipe",
-      label: "Tipe",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "nama_barang",
-      label: "Nama Barang",
-      disablePadding: true,
-      numeric: false,
-    },
-    {
-      id: "kuantitas",
-      label: "Kuantitas",
+      id: "alamat",
+      label: "Alamat",
       numeric: true,
       disablePadding: true,
     },
     {
-      id: "ukuran",
-      label: "Ukuran",
+      id: "email",
+      label: "Email",
       numeric: true,
       disablePadding: true,
+    },
+    {
+      id: "no_hp",
+      label: "Nomor Hp",
+      disablePadding: true,
+      numeric: false,
+    },
+    {
+      id: "kode_pemasok",
+      label: "Kode Pemasok",
+      disablePadding: true,
+      numeric: false,
+    },
+    {
+      id: "harga_jual",
+      label: "Harga Jual",
+      disablePadding: true,
+      numeric: false,
     },
     {
       id: "hpp",
       label: "HPP",
-      numeric: true,
       disablePadding: true,
-    },
-    {
-      id: "total",
-      label: "Total",
-      numeric: true,
-      disablePadding: true,
+      numeric: false,
     },
     {
       id: "aksi",
@@ -182,27 +168,19 @@ export default function Pemasok() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [toBeSelected, settoBeSelected] = React.useState({});
   const dispatch = useDispatch();
-  const dataStore = useSelector((state)=> state.reducer.getPembelian.data)
+  const dataStore = useSelector((state)=> state.reducer.getPemasok.data)
   const [openDetail,setOpenDetail] = React.useState(false)
   const [rows, setRows] = React.useState(dataStore)
   const [searched, setSearched] = React.useState();
+  const [openDetailAdd,setOpenDetailAdd] = React.useState(false)
   const [cari, setCari] = React.useState();
   useEffect(()=>{
-    dispatch(getPembelian())
+    dispatch(getPemasok())
   },[])
-  const requestSearch = (searchedVal) => {
-    const filteredRows = dataStore.filter((data) => {
-      return Object.keys(data).some((key) =>
-      (typeof data[key] === 'string' || typeof data[key] ==='number') && 
-      data[key].toString().toLowerCase().includes(searchedVal.target.value)
-      );
-    });
-    setRows(filteredRows);    
-  };
-
   useEffect(()=>{
     setRows(dataStore)
   },[dataStore])
+  console.log(dataStore)
   const handleOpenDetail=(dataStore)=>{
     settoBeSelected(dataStore)
     setOpenDetail(true)
@@ -223,7 +201,6 @@ export default function Pemasok() {
     }
     setSelected([]);
   };
- 
 
   const handleClick = (event, name) => {
     const selectedIndex = selected.indexOf(name);
@@ -271,7 +248,7 @@ export default function Pemasok() {
       marginTop:"5%"
     }}>
       <div style={{display:'flex'}}>
-      <h1>Pembelian</h1>
+      <h1>Pemasok</h1>
             <div
              style={{
                  position:"absolute",
@@ -281,7 +258,7 @@ export default function Pemasok() {
             >
             <Button
                 style={{
-                    background: "#E14C4C",
+                    background: "rgb(81, 94, 193)",
                     color: 'white',
                     textTransform: 'capitalize',
                     marginRight:"15px",
@@ -289,8 +266,11 @@ export default function Pemasok() {
                     padding:"1em",
                     borderRadius:"14px"
                 }}
-                label="Hapus"
-                startIcon={<DeleteIcon/>}
+                label="Tambah"
+                startIcon={<Add/>}
+                onClick={()=>{
+                  setOpenDetailAdd(true)
+                }}
            />
            <Button
                 style={{
@@ -315,7 +295,7 @@ export default function Pemasok() {
           <InputLabel htmlFor="outlined-adornment-password">Cari</InputLabel>
           <OutlinedInput
             value={searched}
-            onChange={(searchVal)=> requestSearch(searchVal)}
+            onChange={handleChangeSearch}
             // onKeyUp={()=>{
             //   dispatch(getPenjualanOffice(`/search`))
             // }}
@@ -367,20 +347,21 @@ export default function Pemasok() {
                       key={row.id}
                       selected={isItemSelected}
                     >
-                      <TableCell align="left">{row.tanggal_transaksi}</TableCell>
-                      <TableCell align="left">{row.artikel}</TableCell>
-                      <TableCell align="left">{row.kategori}</TableCell>
-                      <TableCell align="left">{row.tipe}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.nama_barang}</TableCell>
-                      <TableCell align="left">{row.kuantitas}</TableCell>
-                      <TableCell align="left">{row.ukuran}</TableCell>
+                      <TableCell align="left">{row.tanggal_join}</TableCell>
+                      <TableCell align="left">{row.nama_pemasok}</TableCell>
+                      <TableCell align="left">{row.alamat}</TableCell>
+                      <TableCell align="left">{row.email}</TableCell>
+                      <TableCell align="left">{row.no_hp}</TableCell>
+                      <TableCell align="left">{row.kode_pemasok}</TableCell>
+                      <TableCell align="left">{row.harga_jual}</TableCell>
                       <TableCell align="left">{row.hpp}</TableCell>
-                      <TableCell align="left">{row.total}</TableCell>
                       <TableCell align="right">
-                      <div style={{
-                        marginLeft:"-100px"
+                      <div  style={{display:"flex"}}>
+                      <IconButton onClick={()=>{
+                        handleOpenDetail(row)
                       }}>
+                          <DeleteIcon />
+                        </IconButton>
                       <IconButton onClick={()=>{
                         handleOpenDetail(row)
                       }}>
@@ -414,11 +395,17 @@ export default function Pemasok() {
         />
       </Paper>
     </Box>
-    <FormPembelian
+    <FormPemasok
     open={openDetail}
     data={toBeSelected}
     onClose={()=>{
       setOpenDetail(false)
+    }}
+    />
+    <FormPemasok
+    open={openDetailAdd}
+    onClose={()=>{
+      setOpenDetailAdd(false)
     }}
     />
     </div>

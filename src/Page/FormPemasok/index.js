@@ -1,22 +1,52 @@
 import {
+    Checkbox,
     Dialog,
     DialogContent,
+    FormControlLabel,
+    FormGroup,
+    TableFooter,
     Typography,
   } from "@mui/material";
   import { Formik } from "formik";
-  import React, { useEffect, useState } from "react";
+  import React, { useEffect, useRef, useState } from "react";
+  import logo from "../../assets/logo.png";
   import Gap from "../../Component/gap";
   import  Input  from "../../Component/input";
   import Button from "../../Component/button";
+  import { useHistory } from 'react-router-dom';
   import { styled } from "@mui/material/styles";
+  import Table from "@mui/material/Table";
+  import TableBody from "@mui/material/TableBody";
   import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+  import TableContainer from "@mui/material/TableContainer";
+  import TableHead from "@mui/material/TableHead";
   import TableRow from "@mui/material/TableRow";
 import { addStockOpname, getStockOpname } from "../../Config/Redux/action";
 import { useDispatch } from "react-redux";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
-
-  function FormPembelian(props) {
+  
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: "#828282",
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+  
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+  const useForceUpdate = () => useState()[1];
+  function FormPemasok(props) {
     const dispatch = useDispatch()
     const dataDetailOffice = props?.data;
     console.log(dataDetailOffice,'data detail')
@@ -32,25 +62,21 @@ import ErrorIcon from '@mui/icons-material/Error';
         console.log("yaw")
       }
     },[dataDetailOffice])
-    // const handleDetailDisable =()=>{
-    //   setDetailDisable(true)
-    // }
+    const handleDetailDisable =()=>{
+      setDetailDisable(true)
+    }
     const loginForm = (
       <Formik
         initialValues={{
-          article: dataDetailOffice?.artikel,
-          tipe: dataDetailOffice?.type,
-          kategori: dataDetailOffice?.kategori,
-          namaBarang: dataDetailOffice?.nama_barang,
-          kuantitas: dataDetailOffice?.kuantitas,
-          ukuran: dataDetailOffice?.ukuran,
-          kuantitas_keluar: dataDetailOffice?.kuantitas_keluar,
-          kuantitas_masuk: dataDetailOffice?.kuantitas_masuk,
-          stock: dataDetailOffice?.stock,
-          stock_opname: dataDetailOffice?.stock_opname,
-          Keterangan: dataDetailOffice?.keterangan,
-          sku_code: dataDetailOffice?.sku_code,
-          id:dataDetailOffice?.id
+            alamat:dataDetailOffice?.alamat,
+            email:dataDetailOffice?.email,
+            id: dataDetailOffice?.id,
+            kuantitas: dataDetailOffice?.kuantitas,
+            nama_Pemasok:dataDetailOffice?.nama_Pemasok,
+            no_hp: dataDetailOffice?.no_hp,
+            tanggal_join: dataDetailOffice?.tanggal_join,
+            total_kunjungan: dataDetailOffice?.total_kunjungan,
+            total_pembelian: dataDetailOffice?.total_pembelian
         }}
         enableReinitialize={true}
         validate={(values) => {
@@ -146,11 +172,11 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                      Article
+                      Nama Pemasok
                     </Typography>
                    <Input
-                      value={values.article}
-                      onChange={handleChange("article")}
+                      value={values.nama_Pemasok}
+                      onChange={handleChange("nama_Pemasok")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -166,11 +192,11 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                      SKU Code
+                      email
                     </Typography>
                    <Input
-                      value={values.sku_code}
-                      onChange={handleChange("sku_code")}
+                      value={values.email}
+                      onChange={handleChange("email")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -186,11 +212,11 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                      Tipe
+                      No Hp
                     </Typography>
                    <Input
-                      value={values.tipe}
-                      onChange={handleChange("tipe")}
+                      value={values.no_hp}
+                      onChange={handleChange("no_hp")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -206,11 +232,11 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                      Kategori
+                      Alamat
                     </Typography>
                    <Input
-                      value={values.kategori}
-                      onChange={handleChange("kategori")}
+                      value={values.alamat}
+                      onChange={handleChange("alamat")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -226,11 +252,11 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                      Nama Barang
+                      kuantitas
                     </Typography>
                    <Input
-                      value={values.namaBarang}
-                      onChange={handleChange("namaBarang")}
+                      value={values.kuantitas}
+                      onChange={handleChange("kuantitas")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -246,12 +272,12 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                     Kuantitas Masuk
+                     Total Kunjungan
                     </Typography>
                     <Gap height="10px" />
                    <Input
-                      value={values.kuantitas_masuk}
-                      onChange={handleChange("kuantitas_masuk")}
+                      value={values.total_kunjungan}
+                      onChange={handleChange("total_kunjungan")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -267,73 +293,12 @@ import ErrorIcon from '@mui/icons-material/Error';
                         color: "#717171",
                       }}
                     >
-                     Kuantitas Keluar
+                     Total Pembelian
                     </Typography>
                     <Gap height="10px" />
                    <Input
-                      value={values.kuantitas_keluar}
-                      onChange={handleChange("kuantitas_keluar")}
-                      // label="Masukan "
-                     disable={detailDisable}
-                      style={{
-                        width: "100%",
-                        borderRadius: "4px",
-                        //   background: '#4C4E5B',
-                      }}
-                    />
-                    <Typography
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                        color: "#717171",
-                      }}
-                    >
-                      Stock
-                    </Typography>
-                   <Input
-                      value={values.stock}
-                      onChange={handleChange("stock")}
-                      // label="Masukan "
-                     disable={detailDisable}
-                      style={{
-                        width: "100%",
-                        borderRadius: "4px",
-                        //   background: '#4C4E5B',
-                      }}
-                    />
-                    <Typography
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                        color: "#717171",
-                      }}
-                    >
-                      Stock Opname
-                    </Typography>
-                   <Input
-                      value={values.stock_opname}
-                      onChange={handleChange("stock_opname")}
-                      // label="Masukan "
-                     disable={detailDisable}
-                      style={{
-                        width: "100%",
-                        borderRadius: "4px",
-                        //   background: '#4C4E5B',
-                      }}
-                    />
-                    <Typography
-                      style={{
-                        fontSize: "20px",
-                        fontWeight: "bold",
-                        color: "#717171",
-                      }}
-                    >
-                      Keterangan
-                    </Typography>
-                    <Gap height="10px" />
-                   <Input
-                      value={values.Keterangan}
-                      onChange={handleChange("Keterangan")}
+                      value={values.total_pembelian}
+                      onChange={handleChange("total_pembelian")}
                       // label="Masukan "
                      disable={detailDisable}
                       style={{
@@ -480,5 +445,5 @@ import ErrorIcon from '@mui/icons-material/Error';
     );
   }
   
-  export default FormPembelian;
+  export default FormPemasok;
   

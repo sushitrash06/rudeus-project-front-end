@@ -1,48 +1,18 @@
 import {
-  Checkbox,
   Dialog,
   DialogContent,
-  FormControlLabel,
-  FormGroup,
-  TableFooter,
   Typography,
 } from "@mui/material";
 import { Formik } from "formik";
-import React, { useEffect, useRef, useState } from "react";
-import logo from "../../assets/logo.png";
+import React, { useEffect,useState } from "react";
 import Gap from "../../Component/gap";
 import Input from "../../Component/input";
 import Button from "../../Component/button";
-import { styled } from "@mui/material/styles";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import TableRow from "@mui/material/TableRow";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorIcon from '@mui/icons-material/Error';
 import { useDispatch } from "react-redux";
 import { addStockOpname, getPenyimpananMasuk } from "../../Config/Redux/action";
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#828282",
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
-const useForceUpdate = () => useState()[1];
 function FormPembelian(props) {
   const dispatch = useDispatch()
   const dataDetailOffice = props?.data;

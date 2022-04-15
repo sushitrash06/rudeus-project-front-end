@@ -41,35 +41,20 @@ code {
   border-radius: 10px;
 }
 .background-login{
-  background: url(assets/background_login.png);
-  height: 100%;
+  background: url(assets/background_login.jpg);
+  height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.overlay-img {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0.5;
-  /* transition: .5s ease; */
-  background-color: #7988ff
-  ;
-}
+
 .login-form{
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin: auto;
   height: 100%;
   width: 100%;
   opacity: 1;
 }
+
 .css-jzk4qw-MuiPaper-root-MuiAppBar-root{
   background-color: #FFF !important ;
   color: #7988ff !important;
