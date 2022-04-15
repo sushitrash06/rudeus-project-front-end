@@ -13,7 +13,7 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import EditIcon from "@mui/icons-material/Edit";
 // import FormPembelian from "../FormPembelian";
 
-export default function BarangMasuk() {
+export default function PengirimanStore() {
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
     {
@@ -125,7 +125,7 @@ export default function BarangMasuk() {
           display: "flex",
         }}
       >
-        <h1>Penyimpanan Barang Masuk</h1>
+        <h1>Pengiriman Dari Store Ke Store</h1>
         <div
           style={{
             position: "absolute",

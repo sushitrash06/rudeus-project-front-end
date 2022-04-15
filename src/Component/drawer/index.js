@@ -259,10 +259,14 @@ export default function PersistentDrawerLeft() {
                 </AccordionSummary>
                 <AccordionDetails>
                   <List style={{cursor:"pointer"}}>
-                    <ListItem>
+                    <ListItem onClick={() => {
+                      history.push('/pengiriman/gudang')
+                    }}>
                       <ListItemText primary="Dari Gudang ke Store" />
                     </ListItem>
-                    <ListItem>
+                    <ListItem onClick={() => {
+                      history.push('/pengiriman/store')
+                    }}>
                       <ListItemText primary="Dari Store ke Store" />
                     </ListItem>
                   </List>
